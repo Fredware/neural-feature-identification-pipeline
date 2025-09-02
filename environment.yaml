@@ -1,0 +1,14 @@
+name: neural-feature-identification-pipeline
+channels:
+  - conda-forge
+dependencies:
+  # Base environment interpreters and non-Python tools
+  - python=3.13
+  - r-base
+  - r-tidyverse
+  - r-lme4
+  - r-simr
+  - r-flexplot
+
+  # Python package manager
+  - uv

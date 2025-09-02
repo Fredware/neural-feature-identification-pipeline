@@ -1,0 +1,54 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "neural_feature_identification"
+version = "0.0.1"
+description = "Data analysis pipeline for identifying features from USEA neural signals that yield the highest performance and longevity for controlling high-DOF prosthetic hands."
+authors = [
+  { name = "Fredi R. Mino" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License"
+]
+requires-python = "~=3.13.0"
+
+# Main packages needed for the project to run
+dependencies = [
+    "polars",
+    "numpy",
+    "scipy",
+    "h5py",
+    "snakemake-minimal", # Use -minimal for faster installation
+    "seaborn",
+    "d3blocks",
+    "altair",
+    "loguru",
+    "tqdm",
+    "python-dotenv",
+]
+
+# Optional packages for development
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "pytest",
+    "mkdocs",
+    "typer",
+]
+
+[tool.ruff]
+line-length = 99
+src = ["neural_feature_identification"]
+include = ["pyproject.toml", "neural_feature_identification/**/*.py"]
+
+[tool.ruff.lint]
+extend-select = ["I"]  # Add import sorting
+
+[tool.ruff.lint.isort]
+known-first-party = ["neural_feature_identification"]
+force-sort-within-sections = true
