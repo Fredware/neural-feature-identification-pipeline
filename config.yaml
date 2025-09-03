@@ -1,0 +1,87 @@
+# --------------------------------------------------------------------------
+# 1. PATHS
+# --------------------------------------------------------------------------
+paths:
+  # Root dir for raw, immutable data
+  data_root: "/uufs/chpc.utah.edu/common/home/george-group1/data-usea"
+  
+  # Root dir on scratch space for intermediate files
+  scratch_root: "/scratch/general/vast/u1424875/neural-features-nips-2025"
+
+  # Root dir for final reports and figs
+  results_root: "/uufs/chpc.utah.edu/common/home/u1424875/research-projects/neural-features-nips-2025/reports"
+  
+  # Path to manifest of curated data files
+  data_manifest_db: "/data/raw/curated_file_list_jag.db"
+
+# --------------------------------------------------------------------------
+# 2. ANALYSIS PARAMETERS
+# --------------------------------------------------------------------------
+analysis:
+  # Complexity of the control task in number of DOFs.
+  # Valid options: 1 (ETD2), 
+  #                2 (ETD2 + Wrist Rotator), 
+  #                3 (ETD2 + Wrist Rotator + Wrist Flexor), 
+  #                6 (LUKE + Wrist Rotator + Wrist Flexor), 
+  #                8 (TASKA + Wrist Rotator + Wrist Flexor)
+  task_dof: 8
+
+  # List of feature sets to generate and compare in the analysis
+  feature_sets:
+    - "NFR"
+    - "SBP-RAW"
+    - "SBP-CAR"
+    - "DWT"
+    - "MAV"
+
+  # Parameters for splitting data into training and testing sets
+  train_test_split:
+    # Proportion of data to use for training (e.g., 0.7 = 70% train, 30% test)
+    train_ratio: 0.7
+
+# --------------------------------------------------------------------------
+# 3. ALGORITHM PARAMETERS
+# --------------------------------------------------------------------------
+algorithms:
+  # Select the decoding algorithm to use for this analysis run.
+  # Future work: mkf_3rd_order, rnn
+  decoder: "mkf_1st_order"
+
+  # Parameters for the feature selection algorithm
+  feature_selection:
+    # The maximum number of features to select
+    max_features: 48
+
+    # The minimum correlation threshold between a feature and the kinematics to be considered in the feature selection process.
+    min_correlation: 0.30
+
+# --------------------------------------------------------------------------
+# 4. FEATURE EXTRACTION PARAMETERS
+# --------------------------------------------------------------------------
+feature_extraction_params:
+  # NFR: Neural Firing Rate
+  nfr:
+    # Threshold for spike detection as a multiple of the standard deviation of the baseline signals
+    spike_threshold_std: -5
+
+  # SBP: Spiking-Band Power (params shared by SBP-RAW and SBP-CAR)
+  sbp:
+    # The sliding window length in seconds
+    window_length_sec: 0.050
+
+    # Bandpass filter parameters
+    bpf_order: 2
+    hpf_cutoff_hz: 300
+    lpf_cutoff_hz: 1000
+
+  # DWT: Discrete Wavelet Transform
+  dwt:
+    # Number of decomposition levels of wavelet transform
+    wavelet_levels: 10
+
+    # wname parameter for MATLAB's wavedec function
+    wavelet_name: 'db4'
+
+  # MAV: Mean Absolute Value
+  mav:
+    window_length_sec: 0.300
