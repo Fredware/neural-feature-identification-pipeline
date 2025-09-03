@@ -7,8 +7,8 @@ dependencies:
   - r-base
   - r-tidyverse
   - r-lme4
-  - r-simr
-  - r-flexplot
+  - r-devtools
+  - r-afex
 
   # Python package manager
   - uv

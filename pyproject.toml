@@ -23,7 +23,7 @@ dependencies = [
     "numpy",
     "scipy",
     "h5py",
-    "snakemake-minimal", # Use -minimal for faster installation
+    "snakemake",
     "seaborn",
     "d3blocks",
     "altair",
