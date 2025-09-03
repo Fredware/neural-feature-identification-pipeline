@@ -1,0 +1,10 @@
+#!/bin/bash
+# This is an example session startup script
+# 1. Copy this file to 'init_session_env.sh' (which is ignored by Git)
+# 2. Edit 'start_session.sh' to match your local environment if needed
+
+echo "--- Configuring modules and activating Conda environment ---"
+module purge
+module use $HOME/mymodules
+module load pycharm miniforge3
+conda activate neural-feature-identification-pipeline

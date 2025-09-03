@@ -230,3 +230,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Initialization script template (for CHPC environments mostly)
+init_session_env.sh
