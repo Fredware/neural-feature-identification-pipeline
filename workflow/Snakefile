@@ -3,6 +3,7 @@ import os
 
 # 1. --- Configuration ---
 configfile: "config.yaml"
+
 DATA_ROOT = config["paths"]["data_root"]
 SCRATCH_ROOT = config["paths"]["scratch_root"]
 DATA_MANIFEST_DB = config["paths"]["data_manifest_db"]

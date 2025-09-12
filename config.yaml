@@ -6,13 +6,13 @@ paths:
   data_root: "/uufs/chpc.utah.edu/common/home/george-group1/data-usea"
   
   # Root dir on scratch space for intermediate files (scratch file system)
-  scratch_root: "/scratch/general/vast/u1424875/neural-features-nips-2025"
+  scratch_root: "/scratch/general/vast/u1424875/neural-feature-identification-pipeline"
 
   # Root dir for final reports and figs (home space)
-  results_root: "/uufs/chpc.utah.edu/common/home/u1424875/research-projects/neural-features-nips-2025/reports"
+  results_root: "/uufs/chpc.utah.edu/common/home/u1424875/research-projects/neural-feature-identification-pipeline/reports"
   
   # Path to manifest of curated data files
-  data_manifest_db: "/data/raw/curated_file_list_jag.db"
+  data_manifest_db: "/uufs/chpc.utah.edu/common/home/u1424875/research-projects/neural-feature-identification-pipeline/data/raw/curated_file_list_jag.db"
 
 # --------------------------------------------------------------------------
 # 2. ANALYSIS PARAMETERS
