@@ -2,13 +2,13 @@
 # 1. PATHS
 # --------------------------------------------------------------------------
 paths:
-  # Root dir for raw, immutable data
+  # Root dir for raw, immutable data (group space)
   data_root: "/uufs/chpc.utah.edu/common/home/george-group1/data-usea"
   
-  # Root dir on scratch space for intermediate files
+  # Root dir on scratch space for intermediate files (scratch file system)
   scratch_root: "/scratch/general/vast/u1424875/neural-features-nips-2025"
 
-  # Root dir for final reports and figs
+  # Root dir for final reports and figs (home space)
   results_root: "/uufs/chpc.utah.edu/common/home/u1424875/research-projects/neural-features-nips-2025/reports"
   
   # Path to manifest of curated data files
@@ -31,7 +31,8 @@ analysis:
     - "NFR"
     - "SBP-RAW"
     - "SBP-CAR"
-    - "DWT"
+    - "DWT-DB1"
+    - "DWT-DB4"
     - "MAV"
 
   # Parameters for splitting data into training and testing sets
@@ -76,11 +77,17 @@ feature_extraction_params:
 
   # DWT: Discrete Wavelet Transform
   dwt:
-    # Number of decomposition levels of wavelet transform
-    wavelet_levels: 10
+    # Largest power of two less than or equal to 300ms@30kHz
+    frame_len: 8192
 
-    # wname parameter for MATLAB's wavedec function
-    wavelet_name: 'db4'
+    # According to Baldazzi, the best performer with the least taps (good for real-time). Equivalent to Haar.
+    db1_name: 'db1'
+    # Typical wavelet used for micro-neurographs aside from sym7
+    db4_name: 'db4'
+
+    # Max decomposition levels Values based on wmaxlev(frame_len, db_name) to avoid boundary effects
+    db1_levels: 13
+    db4_levels: 10
 
   # MAV: Mean Absolute Value
   mav:

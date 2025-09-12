@@ -1,0 +1,81 @@
+import pandas as pd
+import os
+
+# 1. --- Configuration ---
+configfile: "config.yaml"
+DATA_ROOT = config["paths"]["data_root"]
+SCRATCH_ROOT = config["paths"]["scratch_root"]
+DATA_MANIFEST_DB = config["paths"]["data_manifest_db"]
+
+# 2. --- Input File Manifest ---
+# Query the database to get a list of session IDs.
+# 'get_session_list.py' should write one session_id per line to a file.
+shell(
+    "python scripts/python/get_session_list.py {config[paths][data_manifest_db]} > reports/manifest.tsv"
+)
+SAMPLES = pd.read_csv("reports/manifest.tsv", sep="\t").set_index("job_id", drop=False)
+# Define the list of feature sets to generate from the config
+FEATURE_SETS = config["analysis"]["feature_sets"]
+
+# 3. --- Target Rule ---
+# The 'all' rule defines the final files to be created
+rule all:
+    input:
+        # Goal: create an HDF5 file for each session and each feature set
+        # and ensure it has been archived back to the permanent data node.
+        expand(
+            f"{DATA_ROOT}/processed/{{job_id}}/{{feature_set}}.h5",
+            session_id=SAMPLES.index,
+            feature_set=FEATURE_SETS,
+        )
+
+# 4. --- Core Logic: Feature Extraction using MATLAB ---
+# Main computational rule that runs on scratch space
+rule extract_features:
+    input:
+        # Input raw data files assumed to be staged in scratch space.
+        # Use lambda functions to dynamically find the correct input file for each job
+        # by looking them up in the SAMPLES DataFrame using the 'job_id' wildcard.
+        training=lambda wildcards: os.path.join(
+            SCRATCH_ROOT, "raw", wildcards.job_id, SAMPLES.loc[wildcards.job_id].training_filename
+        ),
+        baseline=lambda wildcards: os.path.join(
+            SCRATCH_ROOT, "raw", wildcards.job_id, SAMPLES.loc[wildcards.job_id].baseline_filename
+        ),
+        events=lambda wildcards: os.path.join(
+            SCRATCH_ROOT, "raw", wildcards.job_id, SAMPLES.loc[wildcards.job_id].training_filename.replace(".kdf", ".kef")
+        ),
+    output:
+        feature_file=temp(f"{SCRATCH_ROOT}/processed/{{job_id}}/{{feature_set}}.h5")
+    params:
+        feature_name="{feature_set}"
+    log:
+        f"reports/logs/extract_features/{{job_id}}_{{feature_set}}.log"
+    shell:
+        """
+        module load matlab
+        matlab -nodisplay -r "try; \
+            extract_features('{input.training}', '{input.baseline}', '{input.events}', '{output.feature_file}', '{params.feature_name}'); \
+            catch e; disp(e.message); exit(1); end; exit(1); end; exit(0);" > {log} 2>&1
+        """
+
+# 5. --- Data Staging & Archiving Rules
+# Stage files to scratch. Match job_id and filename wildcards
+rule stage_file_to_scratch:
+    input:
+        # Look up the session directory from the manifest to build the source path
+        lambda wildcards: os.path.join(
+            DATA_ROOT, SAMPLES.loc[wildcards.job_id].session_dir, wildcards.filename
+        )
+    output:
+        temp(f"{SCRATCH_ROOT}/raw/{{job_id}}/{{filename}}")
+    shell:
+        "mkdir -p $(dirname {output}) && rsync -av {input} {output}"
+
+rule archive_features:
+    input:
+        f"{SCRATCH_ROOT}/processed/{{job_id}}/{{feature_set}}.h5"
+    output:
+        f"{DATA_ROOT}/processed/{{job_id}}/{{feature_set}}.h5"
+    shell:
+        "mkdir -p $(dirname {output}) && rsync -av {input} {output}"
