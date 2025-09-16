@@ -16,7 +16,7 @@ rule extract_features:
         module load matlab/r2024b
         matlab -nodisplay -r " \
         addpath('scripts/matlab'); \
-        run_feature_extraction( \
+        extract_features( \
             'data_root', '{DATA_ROOT}', \
             'session_dir', '{params.job_info.session_dir}', \
             'training_filename', '{params.job_info.training_filename}', \
