@@ -1,0 +1,17 @@
+function [] = plot_kinematics_and_features(kdf_filename, mask_name, kinematics_train, kinematics_test, kinematic_sets_predicted, feature_sets_names, feature_sets_idxs, feature_sets_train, feature_sets_test)
+%PLOT_KINEMATICS_AND_FEATURES Summary of this function goes here
+%   Detailed explanation goes here
+num_feature_sets = numel(feature_sets_names);
+fig_name = regexprep(kdf_filename, '\.kdf$', mask_name);
+
+fig_h = figure();
+tlo = tiledlayout(num_feature_sets+1, 2); % First row for kinematics, 1 col for training and another for testing
+title(tlo, fig_name);
+
+plot_kinematics(tlo, kinematics_train, kinematics_test, kinematic_sets_predicted, feature_sets_names);
+plot_features(tlo, feature_sets, feature_sets_test, feature_sets_idxs, feature_sets_names)
+end
+
+function plot_kineamtics(tlo, kinematics_train, kinematics_test, kinematics_sets_predicted, feature_sets_names_train)
+end
+

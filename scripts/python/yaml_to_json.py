@@ -13,6 +13,6 @@ with open(input_yaml_path, "r") as f_yaml:
     config_yaml_data = yaml.safe_load(f_yaml)
 
 with open(output_json_path, "w") as f_json:
-    json.dump(config_yaml_data, f_json)
+    json.dump(config_yaml_data, f_json, indent=4)
 
 print(f"Successfully converted {input_yaml_path} to {output_json_path}")

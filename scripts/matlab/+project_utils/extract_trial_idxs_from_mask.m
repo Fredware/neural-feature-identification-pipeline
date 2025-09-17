@@ -1,0 +1,52 @@
+function [trial_starts, trial_stops] = extract_trial_idxs_from_mask(mask, trial_starts_idx, trial_stops_idx)
+mask_shifted = circshift(mask, 1);
+mask_shifted(1) = mask(1);
+trial_starts_idx_masked = and(trial_starts_idx, mask_shifted); %Deal with off by 1 error in mask. TODO: handle the modded first element by manually setting to zero
+trial_stops_idx_masked =  and(trial_stops_idx, mask_shifted); %Deal with off by 1 error in mask. TODO: handle the modded first element by manually setting to zero
+trial_starts_idx_masked(1) = false;
+trial_stops_idx_masked(1) = false;
+
+[trial_starts, trial_stops] = compute_joined_trial_idxs(mask_shifted, trial_starts_idx_masked, trial_stops_idx_masked);
+% test_trial_offset = find(mask, 1, 'first');
+% trial_starts = find(trial_starts_idx_masked) - test_trial_offset;
+% trial_stops = find(trial_stops_idx_masked) - test_trial_offset;
+end
+
+function [trial_starts_joined, trial_stops_joined] = compute_joined_trial_idxs(mask, trial_starts_idx, trial_stops_idx)
+[mask_starts_joined, mask_stops_joined, mask_starts, mask_stops] = join_mask(mask);
+trial_starts_joined = [];
+for ii = find(trial_starts_idx)
+    jj = find(ii >= mask_starts, 1, 'last');
+    trial_start_joined = ii - mask_starts(jj) + mask_starts_joined(jj);
+    trial_starts_joined = [trial_starts_joined, trial_start_joined];
+end
+trial_stops_joined = [];
+for ii = find(trial_stops_idx)
+    jj = find(ii <= mask_stops, 1, 'last');
+    trial_stop_joined = ii - mask_starts(jj) + mask_starts_joined(jj);
+    trial_stops_joined = [trial_stops_joined, trial_stop_joined];
+end
+end
+
+function [mask_starts_joined, mask_stops_joined, mask_starts, mask_stops] = join_mask(mask)
+if mask(end) % handle edge case where mask runs to the end of the file
+    mask(end+1) = 0;
+end
+mask_markers = diff(mask);
+mask_starts = find(mask_markers == 1)+1; % correct off-by-one error introduced by diff.
+mask_stops = find(mask_markers == -1);
+if numel(mask_starts) ~= numel(mask_stops)
+    error("Incorrect mask segmentation")
+end
+mask_starts_joined = [];
+mask_stops_joined = [];
+for ii = 1:numel(mask_starts)
+    if ii == 1
+        section_offset = 0;
+    else
+        section_offset = mask_stops_joined(end);
+    end
+    mask_starts_joined = [mask_starts_joined, 1 + section_offset];
+    mask_stops_joined = [mask_stops_joined, mask_stops(ii) - mask_starts(ii) + 1 + section_offset];
+end
+end

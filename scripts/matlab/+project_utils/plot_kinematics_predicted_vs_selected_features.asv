@@ -1,0 +1,29 @@
+function [fig_h] = plot_kinematics_predicted_vs_selected_features(kinematics, test_mask, test_trial_idxs, kinematics_predicted, features_selected, feature_key)
+
+KINEMATIC_OFFSETS = [1:12]; % DC offset for visualization purposes
+
+fig_h = figure();
+ax_list = [];
+
+tlo_h = tiledlayout(3,1);
+ax_h = nexttile;
+hold on
+plot(kinematics(test_mask, :) + KINEMATIC_OFFSETS);
+xline(test_trial_idxs.relative_starts, 'Color','red');
+xline(test_trial_idxs.relative_stops);
+hold off
+ax_list = [ax_list, ax_h];
+title("Test Kinematics Desired")
+
+ax_h = nexttile;
+plot(kinematics_predicted + KINEMATIC_OFFSETS);
+ax_list = [ax_list, ax_h];
+linkaxes(ax_list)
+
+ax_h = nexttile;
+plot(features_selected(test_mask,:))
+title(tlo_h, "Intended Vs. Predicted Kinematics")
+subtitle(tlo_h, feature_key)
+
+end
+
