@@ -8,6 +8,8 @@
 /data/
 /models/
 /reports/
+!reports/manifest.tsv
+!reports/manifest_annotations.yaml
 
 # =============================================================================
 # OS & EDITOR-SPECIFIC FILES
