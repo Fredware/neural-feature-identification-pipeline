@@ -1,0 +1,6184 @@
+# --------------------------------------------------------------------------
+# KINEMATIC DATA ANNOTATIONs
+# --------------------------------------------------------------------------
+# This file contains metadata for each recording session (job_id) in manifest.tsv.
+#
+# - kinematics_present: List of joint blocks present in the recording.
+# - independent_blocks: Boolean, true if joints were moved independently.
+# - details: A list of objects, one for each kinematic present.
+#   - name: The name of the kinematic degree of freedom.
+#   - block_types: List of gestures performed (e.g., flexion, extension).
+#   - trials: A mapping of block type to the number of successful trials.
+# --------------------------------------------------------------------------
+
+1:
+  training_filename: Kalman_TrainingData_20150930-143221_144810.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+2:
+  training_filename: Kalman_TrainingData_20150930-153030_155415.kdf
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+
+3:
+  training_filename: Kalman_TrainingData_20151012-140007_141313.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+4:
+  training_filename: Kalman_TrainingData_20151102-144812_145312.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+5:
+  training_filename: Kalman_TrainingData_20151104-131251_131622.kdf
+  comments: Combo block at EOF
+  warnings: Incomplete block of d2 flexions following the combo block. Block removal is advised.
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+6:
+  training_filename: Kalman_TrainingData_20151104-133349_134116.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+      
+7:
+  training_filename: Kalman_TrainingData_20151113-135108_135600.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type:  independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+8: 
+  training_filename: Kalman_TrainingData_20151116-135318_135843.kdf
+  comments: Combo block at EOF
+  warning: Combo block has unequal number of flexions and extensions
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+9:
+  training_filename: Kalman_TrainingData_20151123-151820_152119.kdf
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+
+10:
+  training_filename: Kalman_TrainingData_20151123-151820_152157.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+11:
+  training_filename: Kalman_TrainingData_20151204-104952_105642.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+12:
+  training_filename: TrainingData_20160527-153222_154009.kdf
+  comments: Combo block at EOF
+  warnings: One trial of d1d2d3d4d5d6d8 triggered after combo block. Removal advised.
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 12
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+13:
+  training_filename: TrainingData_20160602-093832_094519.kdf
+  comments: Combo block at EOF
+  warnings: Single instance of d1 flexion after combo block. Removal advised.
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+14:
+  training_filename: TrainingData_20160608-124342_125429.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+15:
+  training_filename: TrainingData_20160608-124342_132031.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+16:
+  training_filename: TrainingData_20160616-092349_092708.kdf
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+
+17:
+  training_filename: TrainingData_20160616-092349_093122.kdf
+  comments: Combo block at EOF
+  warnings: Extension combo block interrupted during the last trial. Removal of last trial is advised
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 9
+
+18:
+  training_filename: TrainingData_20160616-092349_094809.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+19:
+  training_filename: TrainingData_20160621-111635_112444.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+20:
+  training_filename: TrainingData_20160624-103052_103431.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+21:
+  training_filename: TrainingData_20160624-103052_104019.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+22:
+  training_filename: TrainingData_20160705-110824_111352.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+23:
+  training_filename: TrainingData_20160712-111812_112207.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+24:
+  training_filename: TrainingData_20160720-112756_113111.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+25:
+  training_filename: TrainingData_20160721-113000_113204.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+26:
+  training_filename: TrainingData_20160721-120732_121038.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+27:
+  training_filename: TrainingData_20160727-105908_110155.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+28:
+  training_filename: TrainingData_20160802-105405_105648.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+29:
+  training_filename: TrainingData_20160802-105405_115953.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+30:
+  training_filename: TrainingData_20160803-112715_113114.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+
+31:
+  training_filename: TrainingData_20160804-103847_104701.kdf
+  comments: Multiple combo blocks at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+32:
+  training_filename: TrainingData_20160804-103847_114758.kdf
+  comments: Multiple combo blocks at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+33:
+  training_filename: TrainingData_20160809-104958_105649.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+34:
+  training_filename: TrainingData_20160817-105205_131309.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+35:
+  training_filename: TrainingData_20160824-101828_104109.kdf
+  comments: d11 bidirectional block and d7d9 flexion block after conventional combo block
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+    d11:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d7d9:
+      type: combined
+      gestures:
+        flexion: 10
+
+36:
+  training_filename: TrainingData_20160831-102216_104159.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+37:
+  training_filename: TrainingData_20160907-101659_104046.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+38:
+  training_filename: TrainingData_20160914-103030_103821.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+39:
+  training_filename: TrainingData_20160921-102916_103222.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+40:
+  training_filename: TrainingData_20160928-104454_104738.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+41:
+  training_filename: TrainingData_20160928-104454_112628.kdf
+  kinematics:
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+
+42:
+  training_filename: TrainingData_20161019-103923_104114.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+43:
+  training_filename: TrainingData_20161109-103022_103412.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+44:
+  training_filename: TrainingData_20161130-113407_113711.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+45:
+  training_filename: TrainingData_20161221-110901_111138.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+46:
+  training_filename: TrainingData_20170112-071945_072430.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+47:
+  training_filename: TrainingData_20170112-071945_073835.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+48:
+  training_filename: TrainingData_20170112-083711_091938.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+49:
+  training_filename: TrainingData_20170117-082636_083003.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+50:
+  training_filename: TrainingData_20170131-073635_074006.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+51:
+  training_filename: TrainingData_20170131-084755_093052.kdf
+  comments: Combo block at EOF
+  warnings: Combo block has unequal number of flexions and extensions
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 4
+
+52:
+  training_filename: TrainingData_20170131-084755_093751.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+53:
+  training_filename: TrainingData_20170209-074547_074904.kdf
+  comments: bidirectional d1d2 block after conventional combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+54:
+  training_filename: TrainingData_20170214-074825_075039.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+55:
+  training_filename: TrainingData_20170214-084639_084953.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+56:
+  training_filename: TrainingData_20170221-091220_091532.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+57:
+  training_filename: TrainingData_20170221-091220_093045.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+58:
+  training_filename: TrainingData_20170221-091220_093627.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+59:
+  training_filename: TrainingData_20170221-091220_094230.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+60:
+  training_filename: TrainingData_20170228-071819_072305.kdf
+  comments: Combo block at EOF
+  kinematics:
+  d1:
+    type: independent
+    gestures:
+      flexion: 10
+      extension: 10
+  d2:
+    type: independent
+    gestures:
+      flexion: 10
+      extension: 10
+  d3:
+    type: independent
+    gestures:
+      flexion: 10
+      extension: 10
+  d4:
+    type: independent
+    gestures:
+      flexion: 10
+      extension: 10
+  d5:
+    type: independent
+    gestures:
+      flexion: 10
+      extension: 10
+  d6:
+    type: independent
+    gestures:
+      flexion: 10
+      extension: 10
+  d10:
+    type: independent
+    gestures:
+      flexion: 10
+      extension: 10
+  d12:
+    type: independent
+    gestures:
+      flexion: 10
+      extension: 10
+
+61:
+  training_filename: TrainingData_20170228-083035_091547.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+
+62:
+  training_filename: TrainingData_20170307-071603_072036.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+63:
+  training_filename: TrainingData_20170321-072456_073309.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+64:
+  training_filename: TrainingData_20170321-085519_085834.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+65:
+  training_filename: TrainingData_20170330-073547_074529.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+66:
+  training_filename: TrainingData_20170404-072204_072752.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+
+67: 
+  training_filename: TrainingData_20170411-072239_073146.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+68:
+  training_filename: TrainingData_20170411-072239_074011.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+69:
+  training_filename: TrainingData_20170411-072239_074754.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+70:
+  training_filename: TrainingData_20170427-082800_085539.kdf
+  comments: No combo block
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+
+71:
+  training_filename: TrainingData_20170427-082800_090535.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+
+72:
+  training_filename: TrainingData_20170509-074107_075433.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+73:
+  training_filename: TrainingData_20170511-072423_072804.kdf
+  comments: Combo block at EOF
+  warnings: Unintended d1 flexion after combo block. Removal advised
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+74:
+  training_filename: TrainingData_20170518-071553_071937.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+75:
+  training_filename: TrainingData_20170518-071553_073408.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+76:
+  training_filename: TrainingData_20170523-071556_071832.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+77:
+  training_filename: TrainingData_20170530-073158_073612.kdf
+  comments: Combo block at EOF
+  warnings: Unintended d1 flexion trial after combo block. Removal advised
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+78:
+  training_filename: TrainingData_20170606-071623_071903.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+79:
+  training_filename: TrainingData_20170613-071807_072049.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+80:
+  training_filename: TrainingData_20170627-072602_073205.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+81:
+  training_filename: TrainingData_20170627-072602_074352.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+82:
+  training_filename: TrainingData_20170627-072602_075459.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+83:
+  training_filename: TrainingData_20170627-072602_081456.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+84:
+  training_filename: TrainingData_20170706-071742_072500.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+85:
+  training_filename: TrainingData_20170711-072606_072952.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+86:
+  training_filename: TrainingData_20170718-092830_093436.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+87:
+  training_filename: TrainingData_20170718-092830_094730.kdf
+  comments: File full of combos only. 
+  warnings: None of these seem like functional grasps.
+  kinematics:
+    d1d2:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d3:
+      type: combined
+      gestures:
+        flexion: 10
+    d1d3d4:
+      type: combined
+      gestures:
+        flexion: 10
+    d3d4:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+    d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3:
+      type: combined
+      gestures:
+        extension: 10
+    d2d3:
+      type: combined
+      gestures:
+        extension: 10
+
+88:
+  training_filename: TrainingData_20170720-071846_072403.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+89:
+  training_filename: TrainingData_20170911-101834_102547.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+90:
+  training_filename: TrainingData_20170911-111202_111903.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+91:
+  training_filename: TrainingData_20170912-125725_130916.kdf
+  comments: Combo block at EOF
+  warnings: Additional bidirectional d11, d7d9, and incomplete d1 flexion blocks after conventional combo block at EOF. Removal advised
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+    d11:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d7d9:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+92:
+  training_filename: TrainingData_20170920-141133_141801.kdf
+  comments: Combo block at EOF
+  warnings: Incomplete d1 flexion block after conventional combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d2:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d3:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d6:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d10:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d12:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 8
+        extension: 8
+
+93:
+  training_filename: TrainingData_20170921-111039_111713.kdf
+  warnings: Non-functional grasps after combined flexion block. Removal advised
+  kinematics:
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+    d2d3d4d5d6:
+      type: combined
+      gestures:
+        extension: 10
+    d2d3d4d5d6-m:
+      type: mixed
+      gestures:
+        flexion: 10
+
+94:
+  training_filename: TrainingData_20170921-111039_112337.kdf
+  warnings: Non-functional grasps after combined flexion block. Removal advised
+  kinematics:
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+    d2d3d4d5d6:
+      type: combined
+      gestures:
+        extension: 10
+    d2d3d4d5d6-mix:
+      type: mixed
+      gestures:
+        flexion: 10
+
+95:
+  training_filename: TrainingData_20170922-130154_131103.kdf
+  comments: Only digit flexions. No combo blocks
+  kinematics:
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+
+96:
+  training_filename: TrainingData_20170922-130154_134019.kdf
+  comments: Only digit flexions. No combo blocks
+  kinematics:
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+
+97:
+  training_filename: TrainingData_20170922-130154_141059.kdf
+  comments: Only digit flexions. No combo blocks. First file with hold gestures
+  kinematics:
+    d2:
+      type: independent
+      gestures:
+        flexion: 20
+    d3:
+      type: independent
+      gestures:
+        flexion: 20
+
+98:
+  training_filename: TrainingData_20171010-113136_113925.kdf
+  comments: Combo block at EOF
+  warnings: Incomplete d1 block after conventional combo block. However it compensates for incomplete d1 block at the start.
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+99:
+  training_filename: TrainingData_20171011-111121_111918.kdf
+  comments: Combo block at EOF
+  warnings: Incomplete d1 flexion block after combo block. Block removal advised
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+100:
+  training_filename: TrainingData_20171011-132524_134317.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+101:
+  training_filename: TrainingData_20171011-132524_135303.kdf
+  comments: No combo blocks. Only digit flexions
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+    d2: 
+      type: independent
+      gestures:
+        flexion: 5
+
+102:
+  training_filename: TrainingData_20171011-132524_140730.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+103:
+  training_filename: TrainingData_20171016-094730_100341.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+
+104:
+  training_filename: TrainingData_20171017-094759_095503.kdf
+  comments: Additional combo blocks after conventional combo block. Removal of blocks advised
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2:
+      type: combined
+      gestures:
+        flexion: 10
+    d1d2d3:
+      type: combined
+      gestures:
+        flexion: 10
+    d1d2d3d4d5-mix:
+      type: mixed
+      gestures:
+        flexion: 10
+    d1d2d3d4d5d12:
+      type: combined
+      gestures:
+        flexion: 10
+
+105:
+  training_filename: TrainingData_20171018-125614_130433.kdf
+  comments: No combo block at EOF. Individual digits only
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+
+106:
+  training_filename: TrainingData_20171018-135923_140102.kdf
+  comments: No combo block. Only independent digits
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+
+107:
+  training_filename: TrainingData_20171019-095954_100856.kdf
+  comments: No combo block. Only independent digits
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+
+108:
+  training_filename: TrainingData_20171019-125752_131702.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+109:
+  training_filename: TrainingData_20171121-095139_095740.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+110:
+  training_filename: TrainingData_20171205-093353_100626.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+111:
+  training_filename: TrainingData_20171206-125801_130104.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+112:
+  training_filename: TrainingData_20171212-122643_123410.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+113:
+  training_filename: TrainingData_20180110-094410_095107.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+114:
+  training_filename: TrainingData_20180111-133521_134054.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+115:
+  training_filename: TrainingData_20180112-092920_094847.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+        extension: 4
+
+116:
+  training_filename: TrainingData_20180115-091716_092440.kdf
+  comments: Combo block at EOF
+  warnings: Combo block only goes in one direction the other direction seems to be missing d3d4d5. Combo removal is advised.
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+    d1d2:
+      type: combined
+      gestures:
+        extension: 4
+
+117:
+  training_filename: TrainingData_20180115-091716_093351.kdf
+  comments: Combo block at EOF
+  warnings: Combo block only goes in one direction the other direction seems to be missing d3d4d5. Combo removal is advised.
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+    d1d2:
+      type: combined
+      gestures:
+        extension: 4
+
+118:
+  training_filename: TrainingData_20180116-092256_092936.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+119:
+  training_filename: TrainingData_20180228-130209_130647.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d2:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d3:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d4:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d5:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d6:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d10:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d12:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 8
+        extension: 8
+
+120:
+  training_filename: TrainingData_20180228-130209_133121.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d2:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d3:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d4:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d5:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d6:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d10:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d12:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 8
+        extension: 8
+
+121:
+  training_filename: TrainingData_20180301-093908_102930.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+122:
+  training_filename: TrainingData_20180302-100218_101858.kdf
+  comments: Combo block at EOF
+  warnings: Incomple combo block. d1d2d3d4d5 flexion followed by d1d2 extension. Combo block removal advised
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+    d1d2:
+      type: combined
+      gestures:
+        extension: 4
+
+123:
+  training_filename: TrainingData_20180305-094057_101447.kdf
+  comments: Combo block at EOF
+  warnings: Incomple combo block. d1d2d3d4d5 flexion followed by d1d2 extension. Combo block removal advised
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+    d1d2:
+      type: combined
+      gestures:
+        extension: 4
+
+124:
+  training_filename: TrainingData_20180306-092616_101411.kdf
+  comments: Combo block at EOF
+  warnings: Incomple combo block. d1d2d3d4d5 flexion followed by d1d2 extension. Combo block removal advised
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+    d1d2:
+      type: combined
+      gestures:
+        extension: 4
+
+125:
+  training_filename: TrainingData_20180306-130631_131424.kdf
+  comments: Combo block at EOF
+  warnings: Incomple combo block. d1d2 flexion block following the conventional combo block. Block removal advised.
+  kinematics:
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2:
+      type: combined
+      gestures:
+        extension: 4
+
+126:
+  training_filename: TrainingData_20180308-100718_102638.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+        extension: 4
+
+127:
+  training_filename: TrainingData_20180424-094746_100900.kdf
+  comments: Combo block at EOF
+  warnings: The first of the d6 trials is unintentionally shorter than every other trial in the file. Caution advised.
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+        extension: 4
+
+128:
+  training_filename: TrainingData_20180427-093743_094359.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d4:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d5:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+        extension: 4
+
+129:
+  training_filename: TrainingData_20180613-092112_093145.kdf
+  comments: Combo block at EOF
+  warnings: Additional d1 flexion block after conventional combo block. D1 block removal advised
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 6
+        extension: 6
+    d2:
+      type: independent
+      gestures:
+        flexion: 6
+        extension: 6
+    d3:
+      type: independent
+      gestures:
+        flexion: 6
+        extension: 6
+    d6:
+      type: independent
+      gestures:
+        flexion: 6
+        extension: 6
+    d10:
+      type: independent
+      gestures:
+        flexion: 6
+        extension: 6
+    d12:
+      type: independent
+      gestures:
+        flexion: 6
+        extension: 6
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 6
+        extension: 6
+    d1d2:
+      type: combined
+      gestures:
+        flexion: 6
+        extension: 6
+
+130:
+  training_filename: TrainingData_20180613-124919_132248.kdf
+  comments: Combo block at EOF. Flexion only file.
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+131:
+  training_filename: TrainingData_20180705-085535_095226.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d6:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d10:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d12:
+      type: independent
+      gestures:
+        flexion: 5
+        extension: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+        extension: 5
+
+132:
+  training_filename: TrainingData_20180706-083012_093341.kdf
+  comments: Combo block at EOF
+  warnings: Firs trial of d10 is shorther than the rest of the trials in the file. Caution advised.
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+        extension: 4
+
+133:
+  training_filename: TrainingData_20180710-080746_084711.kdf
+  comments: Individual DOFs only
+  kinematics:
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+
+134:
+  training_filename: TrainingData_20180710-080746_090649.kdf
+  comments: Independent DOFs only
+  kinematics:
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+
+135:
+  training_filename: TrainingData_20180711-131946_133818.kdf
+  comments: Independent DOFs only
+  kinematics:
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+
+136:
+  training_filename: TrainingData_20180711-131946_135851.kdf
+  comments: Independent DOFs only
+  kinematics:
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+
+137:
+  training_filename: TrainingData_20180711-131946_141531.kdf
+  comments: Independent DOFs only. Mixed duration
+  kinematics:
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+
+138:
+  training_filename: TrainingData_20180711-131946_143346.kdf
+  comments: Independent DOFs only
+  kinematics:
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+
+139:
+  training_filename: TrainingData_20180712-125006_132656.kdf
+  comments: Combo block at EOF. Independent DOFs only.
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 5
+    d2:
+      type: independent
+      gestures:
+        flexion: 5
+    d3:
+      type: independent
+      gestures:
+        flexion: 5
+    d4:
+      type: independent
+      gestures:
+        flexion: 5
+    d5:
+      type: independent
+      gestures:
+        flexion: 5
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 5
+
+140:
+  training_filename: TrainingData_20180815-104759_111447.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d2:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d3:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d6:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d10:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d12:
+      type: independent
+      gestures:
+        flexion: 8
+        extension: 8
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 8
+        extension: 8
+
+141:
+  training_filename: TrainingData_20181011-102439_103853.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+142:
+  training_filename: TrainingData_20181114-140052_140855.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+143:
+  training_filename: TrainingData_20181115-095918_101401.kdf
+  comments: Abnormal combo block at EOF. Combo block removal advised
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d6:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+    d1d2:
+      type: combined
+      gestures:
+        extension: 4
+
+144:
+  training_filename: TrainingData_20190109-131812_132203.kdf
+  comments: Combo block at EOF
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 10
+        extension: 10
+
+145:
+  training_filename: TrainingData_20220722-124006_124538.kdf
+  comments: Combo block present. Flexions only
+  warnings: Combo block at start of file.
+  kinematics:
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+
+146:
+  training_filename: TrainingData_20220722-124006_130426.kdf
+  comments: Independent DOFs only. Different hold times
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+
+147:
+  training_filename: TrainingData_20220722-124006_130809.kdf
+  comments: Independent DOFs only
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+
+148:
+  training_filename: TrainingData_20220722-124006_132530.kdf
+  warnings: Combo block at start of file.
+  kinematics:
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+
+149:
+  training_filename: TrainingData_20220722-124006_132835.kdf
+  warnings: Combo block at start of file.
+  kinematics:
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+        extension: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+        extension: 4
+
+150:
+  training_filename: TrainingData_20220819-113328_115558.kdf
+  comments: Independent DOFs only. 
+  kinematics:
+    d1:
+      type: independent
+      gestures:
+        flexion: 4
+    d2:
+      type: independent
+      gestures:
+        flexion: 4
+    d3:
+      type: independent
+      gestures:
+        flexion: 4
+    d4:
+      type: independent
+      gestures:
+        flexion: 4
+    d5:
+      type: independent
+      gestures:
+        flexion: 4
+    d10:
+      type: independent
+      gestures:
+        flexion: 4
+    d12:
+      type: independent
+      gestures:
+        flexion: 4
+
+151:
+  training_filename: TrainingData_20220819-113328_121504.kdf
+  comments: Single combo block
+  kinematics:
+    d1d2d3d4d5:
+      type: combined
+      gestures:
+        flexion: 4
+
+152:
+  training_filename: TrainingData_20221010-125757_132932.kdf
+  comments: Single combo block
+  kinematics:
+    d1d2:
+      type: combined
+      gestures:
+        flexion: 5
+
+153:
+  training_filename: TrainingData_20221010-125757_133111.kdf
+  comments: Single combo block
+  kinematics:
+    d1d2:
+      type: combined
+      gestures:
+        flexion: 5
+
+154:
+  training_filename: TrainingData_20221010-125757_133533.kdf
+  comments: Single combo block
+  kinematics:
+    d1d2:
+      type: combined
+      gestures:
+        flexion: 5
+
+155:
+  training_filename: TrainingData_20221011-094451_104811.kdf
+  comments: Single DOF block
+  kinematics:
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
