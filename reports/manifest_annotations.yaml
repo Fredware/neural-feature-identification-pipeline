@@ -2720,46 +2720,46 @@
   training_filename: TrainingData_20170228-071819_072305.kdf
   comments: Combo block at EOF
   kinematics:
-  d1:
-    type: independent
-    gestures:
-      flexion: 10
-      extension: 10
-  d2:
-    type: independent
-    gestures:
-      flexion: 10
-      extension: 10
-  d3:
-    type: independent
-    gestures:
-      flexion: 10
-      extension: 10
-  d4:
-    type: independent
-    gestures:
-      flexion: 10
-      extension: 10
-  d5:
-    type: independent
-    gestures:
-      flexion: 10
-      extension: 10
-  d6:
-    type: independent
-    gestures:
-      flexion: 10
-      extension: 10
-  d10:
-    type: independent
-    gestures:
-      flexion: 10
-      extension: 10
-  d12:
-    type: independent
-    gestures:
-      flexion: 10
-      extension: 10
+    d1:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d2:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d3:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d4:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d5:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d6:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d10:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
+    d12:
+      type: independent
+      gestures:
+        flexion: 10
+        extension: 10
 
 61:
   training_filename: TrainingData_20170228-083035_091547.kdf
