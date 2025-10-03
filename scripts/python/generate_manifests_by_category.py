@@ -57,7 +57,7 @@ def generate_manifests_by_category(
         if not is_categorized:
             categorized_jobs["OTHER"].append(job_id)
 
-    file_prefix = "manifest_bidirectional_" if bidirectional_only else "manifest_"
+    file_prefix = "manifest_bidirectional_" if bidirectional_only else "manifest_unidirectional_"
     print(f"Generating manifests with mode: {'Bidirectional Only' if bidirectional_only else 'Standard'}")
     for category_name, job_ids in categorized_jobs.items():
         if not job_ids:

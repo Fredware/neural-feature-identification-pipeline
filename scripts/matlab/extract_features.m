@@ -55,4 +55,6 @@ nip_range_baseline = [kdf_nip_time_baseline(1), kdf_nip_time_baseline(end)] + ni
 ns5_scaling_factor_baseline = (double(ns5_header_baseline.MaxAnlgVal(1)) - double(ns5_header_baseline.MinAnlgVal(1))) / ...
     (double(ns5_header_baseline.MaxDigVal(1)) - double(ns5_header_baseline.MinDigVal(1))); % scale factor for dig2analog
 ns5_data_baseline_scaled = single(ns5_data_baseline(1:NUM_CHANS,:)')*ns5_scaling_factor_baseline;
+
+
 end

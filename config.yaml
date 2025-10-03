@@ -30,7 +30,7 @@ analysis:
   feature_sets:
     - "NFR"
     - "SBP-RAW"
-    - "SBP-CAR"
+  #  - "SBP-CAR"
     - "DWT-DB1"
     - "DWT-DB4"
     - "MAV"
