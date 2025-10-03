@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-3c50e81936666f2a3e3783a8423b3fa0"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "participant_id", "title": "Participant ID", "type": "nominal"}, "tooltip": [{"field": "category", "type": "nominal"}, {"field": "participant_id", "type": "nominal"}, {"field": "count", "type": "quantitative"}], "x": {"axis": {"labelAngle": -45}, "field": "category", "title": "Dataset Category", "type": "nominal"}, "y": {"aggregate": "sum", "field": "count", "title": "Number of Datasets", "type": "quantitative"}}, "height": 400, "params": [{"name": "param_1", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales"}], "title": "Dataset Distribution by Category and Participant (Bidirectional Kinematics Only)", "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-3c50e81936666f2a3e3783a8423b3fa0": [{"participant_id": "P201501", "count": 9, "category": "1DOF-ETD"}, {"participant_id": "P201601", "count": 74, "category": "1DOF-ETD"}, {"participant_id": "P201701", "count": 48, "category": "1DOF-ETD"}, {"participant_id": "P201501", "count": 9, "category": "2DOF-ETDR"}, {"participant_id": "P201601", "count": 64, "category": "2DOF-ETDR"}, {"participant_id": "P201701", "count": 43, "category": "2DOF-ETDR"}, {"participant_id": "P201501", "count": 9, "category": "3DOF-ETDRF"}, {"participant_id": "P201601", "count": 64, "category": "3DOF-ETDRF"}, {"participant_id": "P201701", "count": 43, "category": "3DOF-ETDRF"}, {"participant_id": "P201601", "count": 64, "category": "6DOF-DEKA"}, {"participant_id": "P201701", "count": 38, "category": "6DOF-DEKA"}, {"participant_id": "P201601", "count": 43, "category": "8DOF-TASKA"}, {"participant_id": "P201701", "count": 15, "category": "8DOF-TASKA"}, {"participant_id": "P201501", "count": 2, "category": "OTHER"}, {"participant_id": "P201601", "count": 3, "category": "OTHER"}, {"participant_id": "P201701", "count": 8, "category": "OTHER"}, {"participant_id": "P202201", "count": 11, "category": "OTHER"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
