@@ -10,7 +10,7 @@ DATA_MANIFEST_DB = config["paths"]["data_manifest_db"]
 
 # --- 2. Input File Manifest
 # Read manifest to get list of all files to be processed. Assumes manifest.tsv has been generated at least once
-manifest = pd.read_csv("/report/manifest.tsv", sep="\t").set_index("job_id", drop=False)
+manifest = pd.read_csv("reports/manifest.tsv", sep="\t").set_index("job_id", drop=False)
 JOB_IDS = manifest["job_id"].to_list()
 FEATURE_SETS = config["analysis"]["feature_sets"]
 
@@ -20,13 +20,14 @@ rule all:
     input:
         # expand creates list of targets by generating all possible combinations of job_ids and feature_sets.
         expand(
-            f"{SCRATCH_ROOT}/features/{{job_id}}/{{feature_set}}.h5",
+            f"{SCRATCH_ROOT}/{{job_id}}/features/{{feature_set}}.h5",
             job_id = JOB_IDS,
             feature_set = FEATURE_SETS
         )
 
 # --- 4. Include Modular Rule Files ---
 include: "rules/common.smk"
+include: "rules/preprocess_session.smk"
 include: "rules/extract_features.smk"
 # TODO: Future rules for next stages
 # include: "rules/evaluate_features.smk"
