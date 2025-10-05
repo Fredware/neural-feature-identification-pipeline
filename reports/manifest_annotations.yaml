@@ -369,7 +369,7 @@
     d1:
       type: independent
       gestures:
-        flexion: 10
+        flexion: 9
         extension: 10
     d2:
       type: independent
