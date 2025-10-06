@@ -31,7 +31,7 @@ analysis:
     - "NFR"
     - "SBP-RAW"
   #  - "SBP-CAR"
-    - "DWT-DB1"
+  #  - "DWT-DB1"
     - "DWT-DB4"
     - "MAV"
 
