@@ -18,8 +18,9 @@ function [NeuralFeature,WfIdx] = makeNeuralFeatures_NS5(threshold, KDFNIPTime, B
 % load('E:\Shared drives\CNI\General\Ripple\xippmex\lfpSOSnotchfilter20180417.mat');
 % load('C:\Users\Bret Mecham\Lab\Data\lfpSOSfilter20180417.mat');
 % load('C:\Users\Bret Mecham\Lab\Data\lfpSOSnotchfilter20180417.mat');
-load('../src/filter_params/lfpSOSfilter20180417.mat');
-load('../src/filter_params/lfpSOSnotchfilter20180417.mat');
+
+% load('../src/filter_params/lfpSOSfilter20180417.mat');
+% load('../src/filter_params/lfpSOSnotchfilter20180417.mat');
 
 % HeaderEMG = fastNSxRead('File',NS5File);
 % if HeaderEMG.ChannelCount > 128

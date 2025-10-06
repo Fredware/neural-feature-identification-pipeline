@@ -31,11 +31,11 @@
 %   2025-04-12  FRM  Modified the code to compute SBP instead of MAV
 %==============================================================================
 function [neural_feature] = compute_sbp_features(kdf_nip_timestamps, ...
-    baseline_nip_time, neural_data, baseline_neural_data, kernel_width)
+    baseline_nip_time, neural_data, baseline_neural_data, feature_params)
 
 % Load filter parameters
-load('../src/filter_params/lfpSOSfilter20180417.mat');
-load('../src/filter_params/lfpSOSnotchfilter20180417.mat');
+% load('../src/filter_params/lfpSOSfilter20180417.mat');
+% load('../src/filter_params/lfpSOSnotchfilter20180417.mat');
 
 % Constants
 LOOP_TIME_SECONDS = 33e-3; % [sec] (33 [ms]) simulated software loop time
