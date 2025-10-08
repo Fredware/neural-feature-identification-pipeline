@@ -4,8 +4,8 @@ addParameter(p, 'data_root', '', @isstring);
 addParameter(p, 'session_dir', '', @isstring);
 addParameter(p, 'training_filename', '', @isstring);
 addParameter(p, 'events_filename', '', @isstring);
-addParameter(p, 'output_kinematics_filename', '', @isstring);
-addParameter(p, 'output_events_filename', '', @isstring);
+addParameter(p, 'output_kinematics_filepath', '', @isstring);
+addParameter(p, 'output_events_filepath', '', @isstring);
 parse(p, varargin{:})
 args = p.Results;
 
@@ -19,17 +19,17 @@ trial_stops = interp1(kdf_nip_time_training, kdf_nip_time_training, [trial_struc
 kdf_kinematics_training = kdf_kinematics_training';
 kdf_nip_time_training = kdf_nip_time_training';
 
-if exist(args.output_kinematics_filename, 'file'), delete(args.output_kinematics_filename); end
-h5create(args.output_kinematics_filename, '/kinematics', size(kdf_kinematics_training));
-h5write(args.output_kinematics_filename, '/kinematics', kdf_kinematics_training);
-h5create(args.output_kinematics_filename, '/nip_time', size(kdf_nip_time_training));
-h5write(args.output_kinematics_filename, '/nip_time', kdf_nip_time_training);
+if exist(args.output_kinematics_filepath, 'file'), delete(args.output_kinematics_filepath); end
+h5create(args.output_kinematics_filepath, '/kinematics', size(kdf_kinematics_training));
+h5write(args.output_kinematics_filepath, '/kinematics', kdf_kinematics_training);
+h5create(args.output_kinematics_filepath, '/nip_time', size(kdf_nip_time_training));
+h5write(args.output_kinematics_filepath, '/nip_time', kdf_nip_time_training);
 
-if exist(args.output_events_filename,  'file'), delete(args.output_events_filename); end
-h5create(args.output_events_filename, '/trial_start_idxs', size(trial_starts));
-h5write(args.output_events_filename, '/trial_start_idxs', trial_starts);
-h5create(args.output_events_filename, '/trial_stop_idxs', size(trial_stops));
-h5write(args.output_events_filename, '/trial_stop_idxs', trial_stops);
+if exist(args.output_events_filepath,  'file'), delete(args.output_events_filepath); end
+h5create(args.output_events_filepath, '/trial_start_idxs', size(trial_starts));
+h5write(args.output_events_filepath, '/trial_start_idxs', trial_starts);
+h5create(args.output_events_filepath, '/trial_stop_idxs', size(trial_stops));
+h5write(args.output_events_filepath, '/trial_stop_idxs', trial_stops);
 
 end
 
