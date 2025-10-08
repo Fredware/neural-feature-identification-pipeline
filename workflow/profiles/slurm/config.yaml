@@ -1,0 +1,7 @@
+executor: slurm
+
+jobs: 100
+
+default-resources:
+  - time="01:45:00"
+  - mem_mb=16000

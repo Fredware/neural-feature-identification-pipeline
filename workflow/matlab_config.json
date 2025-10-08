@@ -1,0 +1,21 @@
+{
+    "nfr": {
+        "spike_threshold_std": -5
+    },
+    "sbp": {
+        "window_length_sec": 0.05,
+        "bpf_order": 2,
+        "hpf_cutoff_hz": 300,
+        "lpf_cutoff_hz": 1000
+    },
+    "dwt": {
+        "frame_len": 8192,
+        "db1_name": "db1",
+        "db4_name": "db4",
+        "db1_levels": 13,
+        "db4_levels": 10
+    },
+    "mav": {
+        "window_length_sec": 0.3
+    }
+}

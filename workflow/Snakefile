@@ -10,7 +10,8 @@ DATA_MANIFEST_DB = config["paths"]["data_manifest_db"]
 
 # --- 2. Input File Manifest
 # Read manifest to get list of all files to be processed. Assumes manifest.tsv has been generated at least once
-manifest = pd.read_csv("reports/manifest.tsv", sep="\t").set_index("job_id", drop=False)
+MANIFEST_PATH = config.get("manifest_path", "reports/manifest.tsv")
+manifest = pd.read_csv(MANIFEST_PATH, sep="\t").set_index("job_id", drop=False)
 JOB_IDS = manifest["job_id"].to_list()
 FEATURE_SETS = config["analysis"]["feature_sets"]
 

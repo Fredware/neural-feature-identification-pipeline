@@ -10,21 +10,20 @@ rule preprocess_session:
         f"{RESULTS_ROOT}/logs/preprocess_session/{{job_id}}.log"
     params:
         job_info=lambda wildcards: manifest.loc[int(wildcards.job_id)],
+    threads: 1
+    resources:
+        mem_mb=4000,
+        time="01:00:00",
+        slurm_account="george",
+        slurm_partition="kingspeak"
     shell:
         r"""
         mkdir -p $(dirname {output.kinematics})
         mkdir -p $(dirname {output.events})
-        
+
         module load matlab/R2024b
         matlab -nodisplay -r " \
             addpath('scripts/matlab'); \
-            process_shared_data( \
-              'data_root', '{DATA_ROOT}', \
-              'session_dir', '{params.job_info.session_dir}', \ 
-              'training_filename', '{params.job_info.training_filename}', \
-              'events_filename', '{params.job_info.events_filename}', \
-              'output_kinematics_filepath', '{output.kinematics}', \
-              'output_events_filepath', '{output.events}' \
-            ); exit; \
+            process_shared_data( 'data_root', \"{DATA_ROOT}\", 'session_dir', \"{params.job_info.session_dir}\", 'training_filename', \"{params.job_info.training_filename}\", 'events_filename', \"{params.job_info.events_filename}\", 'output_kinematics_filepath', \"{output.kinematics}\", 'output_events_filepath', \"{output.events}\"); exit; \
         " > {log} 2>&1
         """
