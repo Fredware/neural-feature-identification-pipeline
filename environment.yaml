@@ -9,6 +9,7 @@ dependencies:
   - r-lme4
   - r-devtools
   - r-afex
+  - coin-or-cbc # <-- Needed for slurm scheduling with snakemake
 
   # Python package manager
   - uv

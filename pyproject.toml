@@ -24,6 +24,7 @@ dependencies = [
     "scipy",
     "h5py",
     "snakemake",
+    "snakemake-executor-plugin-slurm",
     "seaborn",
     "d3blocks",
     "altair",
