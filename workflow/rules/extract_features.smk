@@ -15,7 +15,7 @@ rule extract_features:
         data_root=DATA_ROOT
     threads: 8
     resources:
-      mem_mb=12000,
+      mem_mb=16000,
       time="02:00:00",
       slurm_account="george",
       slurm_partition="kingspeak"
