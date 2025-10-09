@@ -30,7 +30,7 @@
 %   2025-04-11  Grok Refactored for modularity, NASA conventions, fixed loop time bug.
 %   2025-04-12  FRM  Modified the code to compute SBP instead of MAV
 %==============================================================================
-function [neural_feature, frame_computation_times] = compute_sbp_features(kdf_nip_timestamps, ...
+function [neural_feature] = compute_sbp_features(kdf_nip_timestamps, ...
     baseline_nip_time, neural_data, baseline_neural_data, feature_params)
 
 % Load filter parameters
