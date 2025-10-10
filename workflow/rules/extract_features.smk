@@ -5,6 +5,7 @@ rule extract_features:
     output:
         h5=f"{SCRATCH_ROOT}/{{job_id}}/features/{{feature_set}}.h5"
     input:
+        mex_file="scripts/matlab/+project_utils/FilterX.mexa64",
         kinematics=f"{SCRATCH_ROOT}/{{job_id}}/kinematics.h5",
         events=f"{SCRATCH_ROOT}/{{job_id}}/events.h5",
         config_json="workflow/matlab_config.json"
