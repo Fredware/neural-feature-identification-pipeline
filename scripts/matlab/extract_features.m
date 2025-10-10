@@ -15,7 +15,7 @@ addParameter(p, 'config_filepath', '', @isstring);
 parse(p, varargin{:})
 args = p.Results;
 
-project_utils.write_log_message('INFO', 'Feature extraction process started', args);
+project_utils.write_log_message('INFO', 'Feature extraction process started', struct('session', args.session_dir, 'feature_set', args.feature_set_id));
 project_utils.write_log_message('INFO', 'Loading configuration files');
 config_string = fileread(args.config_filepath);
 feature_params = jsondecode(config_string);
@@ -29,7 +29,7 @@ rec_start_filepath = fullfile(session_path, sprintf('RecStart_%s.mat', session_p
 try
     nip_offset_full_stream = project_utils.CalculateNIPOffset_bhm(ns2_full_stream_filepath, rec_start_filepath);
 catch e
-    project_utils.write_log_message('WARN', sprintf("Failed to compute NIP offset with RecStart. Attempting SSStruct instead. %s\n", e.message));
+    project_utils.write_log_message('WARN', sprintf("Failed to compute NIP offset with RecStart. Attempting SSStruct instead. %s", e.message));
     rec_start_filepath = fullfile(session_path, sprintf('Kalman_SSStruct_%s.mat', session_path(end-14:end)));
     nip_offset_full_stream = project_utils.CalculateNIPOffset_bhm(ns2_full_stream_filepath, rec_start_filepath);
     project_utils.write_log_message('INFO', 'SSStruct computation succeeded');
@@ -44,6 +44,8 @@ project_utils.write_log_message('INFO', 'Loading NS5 training data...')
 load_timer = tic;
 [ns5_header_training, ns5_data_training] = unrl_utils.fastNSxRead2022('File', ns5_full_stream_filepath, 'Range', nip_range_training);
 project_utils.write_log_message('INFO', 'Training data loaded', struct('duration_sec', toc(load_timer)))
+s_raw = whos('ns5_data_training');
+project_utils.write_log_message('DEBUG', 'Memory usage for raw training data.', struct('variable', 'ns5_data_training', 'megabytes', s_raw.bytes / 1024^2));
 % Scaling factor for D2A conversion
 ns5_scaling_factor_training = (double(ns5_header_training.MaxAnlgVal(1)) - double(ns5_header_training.MinAnlgVal(1))) / ...
     (double(ns5_header_training.MaxDigVal(1)) - double(ns5_header_training.MinDigVal(1)));
@@ -56,12 +58,14 @@ s = whos('ns5_data_training_scaled');
 project_utils.write_log_message('DEBUG', 'Memory usage for scaled training data', struct('variable', 'ns5_data_training_scaled', 'megabytes', s.bytes / 1024^2));
 
 % Load raw data for the baseline section of the control task
+[~, ~, ~, ~, kdf_nip_time_baseline] = unrl_utils.readKDF_jag(fullfile(session_path, args.baseline_filename));
+nip_range_baseline = [kdf_nip_time_baseline(1), kdf_nip_time_baseline(end)] + nip_offset_full_stream;
 project_utils.write_log_message('INFO', 'Loading NS5 baseline data...');
 load_timer = tic;
-[~, ~, ~, ~, kdf_nip_time_baseline] = unrl_utils.readKDF_jag(fullfile(session_path, args.baseline_filename));
-project_utils.write_log_message('INFO', 'Baseline data loaded', struct('duration_sec', toc(load_timer)));
-nip_range_baseline = [kdf_nip_time_baseline(1), kdf_nip_time_baseline(end)] + nip_offset_full_stream;
 [ns5_header_baseline, ns5_data_baseline] =  unrl_utils.fastNSxRead2022('File', ns5_full_stream_filepath, 'Range', nip_range_baseline);
+project_utils.write_log_message('INFO', 'Baseline data loaded', struct('duration_sec', toc(load_timer)));
+s_raw = whos('ns5_data_baseline');
+project_utils.write_log_message('DEBUG', 'Memory usage for raw training data.', struct('variable', 'ns5_data_baseline', 'megabytes', s_raw.bytes / 1024^2));
 ns5_scaling_factor_baseline = (double(ns5_header_baseline.MaxAnlgVal(1)) - double(ns5_header_baseline.MinAnlgVal(1))) / ...
     (double(ns5_header_baseline.MaxDigVal(1)) - double(ns5_header_baseline.MinDigVal(1))); % scale factor for dig2analog
 ns5_data_baseline_scaled = single(ns5_data_baseline(1:NUM_CHANS,:)')*ns5_scaling_factor_baseline;
@@ -131,10 +135,10 @@ h5write(args.output_filepath, '/features', features);
 h5create(args.output_filepath, '/computation_times', size(frame_computation_times));
 h5write(args.output_filepath, '/computation_times', frame_computation_times);
 if exist(args.output_filepath, 'file')
-    project_utils.log_message('INFO', 'HDF5 file successfully written.', struct('duration_sec', toc(save_timer)));
+    project_utils.write_log_message('INFO', 'HDF5 file successfully written.', struct('duration_sec', toc(save_timer)));
 else
-    project_utils.log_message('ERROR', 'Failed to write HDF5 file.', struct('path', args.output_filepath));
+    project_utils.write_log_message('ERROR', 'Failed to write HDF5 file.', struct('path', args.output_filepath));
 end
 
-project_utils.log_message('INFO', 'Feature extraction process finished.', struct('total_duration_sec', toc(total_timer)));
+project_utils.write_log_message('INFO', 'Feature extraction process finished.', struct('total_duration_sec', toc(total_timer)));
 end
