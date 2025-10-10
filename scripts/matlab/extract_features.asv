@@ -1,5 +1,4 @@
 function extract_features(varargin)
-total_timer = tic;
 % --- 1. Parse Name-Value Input Args
 p = inputParser;
 addParameter(p, 'data_root', '', @isstring);
@@ -118,10 +117,10 @@ switch(args.feature_set_id)
 end
 extraction_duration = toc(feature_timer);
 s = whos('features');
-project_utils.write_log_message('INFO', 'Feature extraction completed', struct('duration_sec', extraction_duration, 'megabytes', s.bytes/1024^2, 'num_features', size(features, 2)));
+project_utils.write_log_message('INFO', 'Feature extraction completed', struct('duration_sec', extraction_duration, 'megabytes', s.bytes/1024^2, 'num_features', size(features, 2)))
 
-project_utils.write_log_message('INFO', 'Writing features to HDF5 file', struct('path', args.output_filepath));
-save_timer = tic;
+project_utils.write_log_message('INFO', 'Loading NS5 baseline data...')
+
 [output_dir, ~, ~] = fileparts(args.output_filepath);
 if ~exist(output_dir, "dir")
     mkdir(output_dir)
@@ -130,11 +129,4 @@ h5create(args.output_filepath, '/features', size(features));
 h5write(args.output_filepath, '/features', features);
 h5create(args.output_filepath, '/computation_times', size(frame_computation_times));
 h5write(args.output_filepath, '/computation_times', frame_computation_times);
-if exist(args.output_filepath, 'file')
-    project_utils.log_message('INFO', 'HDF5 file successfully written.', struct('duration_sec', toc(save_timer)));
-else
-    project_utils.log_message('ERROR', 'Failed to write HDF5 file.', struct('path', args.output_filepath));
-end
-
-project_utils.log_message('INFO', 'Feature extraction process finished.', struct('total_duration_sec', toc(total_timer)));
 end
