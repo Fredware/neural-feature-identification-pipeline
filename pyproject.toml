@@ -60,3 +60,8 @@ addopts = "-ra -q" # add options: -ra (report all except passed), -q (quiet)
 testpaths = [
     "tests",
 ]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.0.0",
+]
