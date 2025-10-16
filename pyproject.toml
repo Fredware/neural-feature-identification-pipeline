@@ -43,6 +43,9 @@ dev = [
     "typer",
     "ipykernel",
     "jupyterlab>=4.4.9",
+    "vegafusion>=2.0.3",
+    "vegafusion-python-embed>=1.6.9",
+    "vl-convert-python>=1.8.0",
 ]
 
 [tool.ruff]
