@@ -41,7 +41,7 @@ analysis:
     train_ratio: 0.7
 
 # --------------------------------------------------------------------------
-# 3. ALGORITHM PARAMETERS
+# 3. NEURAL DECODING PARAMETERS
 # --------------------------------------------------------------------------
 algorithms:
   # Select the decoding algorithm to use for this analysis run.
@@ -92,3 +92,10 @@ feature_extraction_params:
   # MAV: Mean Absolute Value
   mav:
     window_length_sec: 0.300
+
+# --------------------------------------------------------------------------
+# 4. ALTAIR VISUALIZATION PARAMETERS
+# --------------------------------------------------------------------------
+vis:
+  num_of_x_points: 2000
+  kinematics_offset: 1.75
