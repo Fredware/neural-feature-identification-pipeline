@@ -42,11 +42,11 @@ def load_session_kinematics_and_events(kinematics_path: Path, events_path: Path)
     """
     session_data = {}
     with h5py.File(kinematics_path, "r") as f:
-        session_data['kinematics'] = f['kinematics'][:]
-        session_data['timestamps'] = f['nip_time'][:]
+        session_data['kinematics'] = f['kinematics'][:].T
+        session_data['timestamps'] = f['nip_time'][:].T
     with h5py.File(events_path, "r") as f:
-        session_data['trial_start_timestamps'] = f['trial_start_idxs'][:].astype(np.int64)
-        session_data['trial_stop_timestamps'] = f['trial_stop_idxs'][:].astype(np.int64)
+        session_data['trial_start_timestamps'] = f['trial_start_idxs'][:].astype(np.int64).T
+        session_data['trial_stop_timestamps'] = f['trial_stop_idxs'][:].astype(np.int64).T
     return session_data
 
 def generate_train_test_split(
@@ -83,8 +83,8 @@ def generate_train_test_split(
 
     # Convert timestamps to array indices
     logger.info("Converting trial timestamps to array indices...")
-    trial_start_idxs = np.searchsorted(kinematics_timestamps.flatten(), trial_start_timestamps.flatten(), side='left')
-    trial_stop_idxs = np.searchsorted(kinematics_timestamps.flatten(), trial_stop_timestamps.flatten(), side='left')
+    trial_start_idxs = np.searchsorted(kinematics_timestamps.flatten(), trial_start_timestamps.flatten(), side='left').flatten()
+    trial_stop_idxs = np.searchsorted(kinematics_timestamps.flatten(), trial_stop_timestamps.flatten(), side='left').flatten()
 
     # Validate trial markers
     valid_trials = []
