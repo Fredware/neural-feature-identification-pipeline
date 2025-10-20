@@ -32,6 +32,7 @@ dependencies = [
     "tqdm",
     "python-dotenv",
     "tables>=3.10.2",
+    "scikit-learn>=1.7.2",
 ]
 
 # Optional packages for development

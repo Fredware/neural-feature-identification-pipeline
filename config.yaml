@@ -97,5 +97,6 @@ feature_extraction_params:
 # 4. ALTAIR VISUALIZATION PARAMETERS
 # --------------------------------------------------------------------------
 vis:
-  num_of_x_points: 2000
+  num_of_x_points: 660
   kinematics_offset: 1.75
+  dwt_subsample_count: 192
