@@ -2,14 +2,57 @@
 import h5py
 import numpy as np
 import random
+import yaml
 from collections import defaultdict
 from loguru import logger
 from pathlib import Path
+from tqdm import tqdm
 
 logger.remove()
 # Configure logger. add() configures logger destinations (a.k.a. sinks).
 # 'level' sets the min level for this sink; messages with lower levels (e.g., DEBUG) will be ignored
 logger.add(lambda msg: print(msg, end=""), colorize=True, level="INFO")
+
+def load_project_config(config_filepath: Path) -> dict:
+    with open(config_filepath, 'r') as f:
+        return yaml.safe_load(f)
+
+def read_hdf_dataset(filepath: Path, keys: list[str]) -> dict:
+    if not filepath.exists():
+        raise FileNotFoundError(f"Could not find '{filepath}'")
+    file_data = {}
+    with h5py.File(filepath, 'r') as f:
+        for key in keys:
+            if key in f:
+                file_data[key] = f[key][:]
+            else:
+                logger.warning(f"'{key}' not found in {filepath.name}")
+    return file_data
+
+def load_session_data(
+        session_dirpath: Path,
+        project_config: dict,
+        events_flag: bool=True,
+        kinematics_flag: bool=True,
+        features_flag: bool=True
+) -> dict:
+    files_to_load = {}
+    if events_flag:
+        files_to_load['events'] = {'filepath': session_dirpath / "events.h5",
+                                   'keys': ['trial_start_idxs', 'trial_stop_idxs']}
+    if kinematics_flag:
+        files_to_load['kinematics'] = {'filepath': session_dirpath / "kinematics.h5",
+                                   'keys': ['kinematics', 'nip_time']}
+    if features_flag:
+        for feature_name in project_config['analysis']['feature_sets']:
+            key_name = feature_name.lower()
+            files_to_load[key_name] = {'filepath': session_dirpath / "features" / f"{feature_name}.h5", 'keys': ['features']}
+
+    session_data = {}
+    for file_name, file_details in tqdm(files_to_load.items(), desc='Loading session data'):
+        session_data[file_name] = read_hdf_dataset(file_details['filepath'], file_details['keys'])
+
+    return session_data
 
 def _create_trial_info(trial_list):
     """
@@ -33,21 +76,16 @@ def _create_trial_info(trial_list):
         current_offset += trial_length
     return info_list
 
-def load_session_kinematics_and_events(kinematics_path: Path, events_path: Path) -> dict:
-    """
-    Loads the kinematics and events data for a single session. Assumes HDF5 files
-    :param kinematics_path: path to kinematics.h5
-    :param events_path: path to events.h5
-    :return: dictionary of session kinematics and events as numpy arrays
-    """
-    session_data = {}
-    with h5py.File(kinematics_path, "r") as f:
-        session_data['kinematics'] = f['kinematics'][:].T
-        session_data['timestamps'] = f['nip_time'][:].T
-    with h5py.File(events_path, "r") as f:
-        session_data['trial_start_timestamps'] = f['trial_start_idxs'][:].astype(np.int64).T
-        session_data['trial_stop_timestamps'] = f['trial_stop_idxs'][:].astype(np.int64).T
-    return session_data
+def print_data_shape(session_data):
+    for key_i, val_i in session_data.items():
+        print(f"{key_i}: {type(val_i)}")
+        for key_j, val_j in val_i.items():
+            print(f"\t{key_j}: {type(val_j)}, {val_j.shape}")
+
+def enforce_samples_as_rows(session_data):
+    for key_i, val_i in session_data.items():
+        for key_j, val_j in val_i.items():
+            val_i[key_j] = val_j.T
 
 def generate_train_test_split(
         kinematics: np.ndarray,
