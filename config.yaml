@@ -39,6 +39,8 @@ analysis:
   train_test_split:
     # Proportion of data to use for training (e.g., 0.7 = 70% train, 30% test)
     train_ratio: 0.7
+    split_type: "train_first"
+    include_combined: False
 
 # --------------------------------------------------------------------------
 # 3. NEURAL DECODING PARAMETERS
