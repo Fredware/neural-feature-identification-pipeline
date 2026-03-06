@@ -1,0 +1,50 @@
+{
+    "paths": {
+        "data_root": "/uufs/chpc.utah.edu/common/home/george-group1/data-usea",
+        "scratch_root": "/scratch/general/vast/u1424875/neural-feature-identification-pipeline",
+        "results_root": "/uufs/chpc.utah.edu/common/home/u1424875/research-projects/neural-feature-identification-pipeline/reports",
+        "data_manifest_db": "/uufs/chpc.utah.edu/common/home/u1424875/research-projects/neural-feature-identification-pipeline/data/raw/curated_file_list_jag.db"
+    },
+    "analysis": {
+        "task_dof": 8,
+        "feature_sets": [
+            "NFR",
+            "SBP-RAW",
+            "SBP-CAR",
+            "DWT-DB1",
+            "DWT-DB4",
+            "MAV"
+        ],
+        "train_test_split": {
+            "train_ratio": 0.7
+        }
+    },
+    "algorithms": {
+        "decoder": "mkf_1st_order",
+        "feature_selection": {
+            "max_features": 48,
+            "min_correlation": 0.3
+        }
+    },
+    "feature_extraction_params": {
+        "nfr": {
+            "spike_threshold_std": -5
+        },
+        "sbp": {
+            "window_length_sec": 0.05,
+            "bpf_order": 2,
+            "hpf_cutoff_hz": 300,
+            "lpf_cutoff_hz": 1000
+        },
+        "dwt": {
+            "frame_len": 8192,
+            "db1_name": "db1",
+            "db4_name": "db4",
+            "db1_levels": 13,
+            "db4_levels": 10
+        },
+        "mav": {
+            "window_length_sec": 0.3
+        }
+    }
+}

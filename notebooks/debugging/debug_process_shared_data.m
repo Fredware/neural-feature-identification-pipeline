@@ -1,0 +1,39 @@
+function debug_process_shared_data(job_id)
+clear vars; clc; close all;
+
+[current_dir, ~, ~] = fileparts(mfilename("fullpath"));
+project_root = fullfile(current_dir, '..', '..'); % Assumes project_root/notebooks/debugging
+
+manifest_path = fullfile(project_root, 'reports', 'manifest.tsv');
+matlab_scripts_path = fullfile(project_root, 'scripts','matlab');
+
+data_root = "/uufs/chpc.utah.edu/common/home/george-group1/data-usea";
+scratch_root = "/scratch/general/vast/u1424875/neural-feature-identification-pipeline";
+
+opts = detectImportOptions(manifest_path, 'FileType','text');
+opts = setvartype(opts, 'job_id', 'double');
+opts = setvartype(opts, {'participant_id', 'session_dir', 'training_filename', 'baseline_filename', 'events_filename', 'full_stream_filename'}, 'string');
+manifest = readtable(manifest_path, opts);
+
+job_info = manifest(manifest.job_id == job_id, :);
+if isempty(job_info)
+    error("JOB ID %d not found in %s", job_id, manifest_path)
+end
+
+output_dir = fullfile(scratch_root, num2str(job_id));
+if ~exist(output_dir, 'dir'), mkdir(output_dir); end
+
+output_kinematics_filename = fullfile(output_dir, 'kinematics_debug.h5');
+output_events_filename = fullfile(output_dir, 'events_debug.h5');
+
+addpath(matlab_scripts_path);
+
+process_shared_data( ...
+    'data_root', data_root, ...
+    'session_dir', job_info.session_dir, ...
+    'training_filename', job_info.training_filename, ...
+    'events_filename', job_info.events_filename, ...
+    'output_kinematics_filepath', output_kinematics_filename, ...
+    'output_events_filepath', output_events_filename ...
+    );
+end
