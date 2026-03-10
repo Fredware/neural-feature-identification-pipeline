@@ -12,6 +12,7 @@ for chan = 1:n_chans
     for level = 1:DWT_LEVELS
         det_coefs = detcoef(dwt_coeffs, dwt_delims, level);
         sigma_j = median(abs(det_coefs))/0.6745; % Noise intensity for each level
+        disp(sigma_j)
         N_j = length(det_coefs);
         base_thresh = sigma_j*sqrt(log(N_j)); % Universal thresh defined in Donoho et al. 1994
         % Han et al. Threshold (DWT version?)
@@ -24,7 +25,7 @@ for chan = 1:n_chans
                 dwt_thresh_chan(level) = base_thresh / log(level+1);
         end
     end
-    dwt_thresh_all(chan) = dwt_thresh_chan;    
+    dwt_thresh_all(chan,:) = dwt_thresh_chan';
 end
 end
 

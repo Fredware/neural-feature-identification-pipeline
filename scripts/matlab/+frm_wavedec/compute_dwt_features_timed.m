@@ -2,10 +2,15 @@ function [dwt_features, dwt_times] = compute_dwt_features_timed(kdf_nip_timestam
 FRAME_LEN = 2^13; % Closest power of two that is less than 300 ms @ 30kHz
 DWT_WAVE = 'db4'; % See Baldazzi et al 2020 (haar = db1 performs best and requires shorter filters). See Diedrich et al. ('db4'/'sym7' is classically used for neural signal processing)
 DWT_LEVELS = 10; % Less than or equal to: wmaxlev(FRAME_LEN, DWT_WAVE)
-n_chans = size(neural_data, 2);
-neural_nip_timestamps = linspace(kdf_nip_timestamps(1), kdf_nip_timestamps(end), length(neural_data));
-dwt_idxs = find(ismember(neural_nip_timestamps, kdf_nip_timestamps));
-dwt_features = nan(length(dwt_idxs), n_chans*DWT_LEVELS);
+[n_samples, n_chans] = size(neural_data);
+
+kdf_idxs_in_30k = ceil(kdf_nip_timestamps - kdf_nip_timestamps(1)) + 1;
+kdf_idxs_in_30k = min(kdf_idxs_in_30k, n_samples);
+n_frames = length(kdf_idxs_in_30k);
+
+% neural_nip_timestamps = linspace(kdf_nip_timestamps(1), kdf_nip_timestamps(end), length(neural_data));
+% dwt_idxs = find(ismember(neural_nip_timestamps, kdf_nip_timestamps));
+% dwt_features = nan(length(dwt_idxs), n_chans*DWT_LEVELS);
 
 dwt_times = [];
 
