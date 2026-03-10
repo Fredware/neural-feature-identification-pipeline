@@ -21,6 +21,7 @@
 
 # Other Editors
 .vscode/
+*.asv
 
 .DS_Store
 
