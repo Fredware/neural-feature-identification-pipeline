@@ -56,6 +56,7 @@ end
 ns5_data_training_scaled = single(ns5_data_training(1:NUM_CHANS, :)').*ns5_scaling_factor_training; % Transpose and scale to single precision
 s = whos('ns5_data_training_scaled');
 project_utils.write_log_message('DEBUG', 'Memory usage for scaled training data', struct('variable', 'ns5_data_training_scaled', 'megabytes', s.bytes / 1024^2));
+clear ns5_data_training; % Free memory 
 
 % Load raw data for the baseline section of the control task
 [~, ~, ~, ~, kdf_nip_time_baseline] = unrl_utils.readKDF_jag(fullfile(session_path, args.baseline_filename));
@@ -71,6 +72,7 @@ ns5_scaling_factor_baseline = (double(ns5_header_baseline.MaxAnlgVal(1)) - doubl
 ns5_data_baseline_scaled = single(ns5_data_baseline(1:NUM_CHANS,:)')*ns5_scaling_factor_baseline;
 s = whos("ns5_data_baseline_scaled");
 project_utils.write_log_message('DEBUG', 'Memory usage for scaled baseline data', struct('variable', 'ns5_data_baseline_scaled', 'megabytes', s.bytes / 1024^2));
+clear ns5_data_baseline; % Free memory
 
 % Extract features
 project_utils.write_log_message('INFO', 'Commencing feature extraction', struct('feature_set', args.feature_set_id));
@@ -82,8 +84,8 @@ switch(args.feature_set_id)
         [features, ~, frame_computation_times] = bhm_nfr.makeNeuralFeatures_NS5( ...
             feature_params.nfr.spike_threshold_std, ...
             kdf_nip_time_training, ...
-            kdf_nip_time_baseline, ...
             ns5_data_training_scaled, ...
+            kdf_nip_time_baseline, ...
             ns5_data_baseline_scaled ...
             );
         features = features'; frame_computation_times = frame_computation_times';
@@ -100,13 +102,15 @@ switch(args.feature_set_id)
         frame_computation_times = frame_computation_times';
     case "DWT-DB1"
     case "DWT-DB4"
-        dwt_thresh = frm_wavedec.compute_dwt_thresholds(ns5_data_baseline_scaled);
+        dwt_thresh = frm_wavedec.compute_dwt_thresholds(ns5_data_baseline_scaled, [], 'db4');
         % returns Nx1920 and 1xN. TODO: transpose times to follow the
         % times=rows convention
-        [features, frame_computation_times] = frm_wavedec.compute_dwt_features( ...
+        [features, frame_computation_times] = frm_wavedec.compute_dwt_features_timed( ...
             kdf_nip_time_training, ...
             ns5_data_training_scaled, ...
-            dwt_thresh);
+            dwt_thresh, ...
+            'db4' ...
+            );
         frame_computation_times = frame_computation_times';
     case "MAV"
         % returns 192xN, and 1xN. TODO: Transpose results to follow
@@ -142,3 +146,4 @@ end
 
 project_utils.write_log_message('INFO', 'Feature extraction process finished.', struct('total_duration_sec', toc(total_timer)));
 end
+

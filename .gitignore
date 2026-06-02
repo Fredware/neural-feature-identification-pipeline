@@ -236,3 +236,9 @@ cython_debug/
 
 # Initialization script template (for CHPC environments mostly)
 init_session_env.sh
+.snakemake/
+slurm-*.out
+*.mexa64
+*.mexw64
+.asv
+workflow/matlab_config.json

@@ -1,20 +1,32 @@
-function [dwt_thresh_all] = compute_dwt_thresholds(baseline_data)
+function [dwt_thresh_all] = compute_dwt_thresholds(baseline_data, n_chans_override, dwt_wname)
+% --- Feature extraction config ---
+% TODO: Load from feature_params json config instead of hardcoding
 FRAME_LEN = 2^13; % Closest power of two that is less than 300 ms @ 30kHz
-DWT_WAVE = 'db4'; % See Baldazzi et al 2020 (haar = db1 performs best and requires shorter filters). See Diedrich et al. ('db4'/'sym7' is classically used for neural signal processing)
+DWT_WAVE = dwt_wname; % DWT_WAVE = 'db4'; % See Baldazzi et al 2020 (haar = db1 performs best and requires shorter filters). See Diedrich et al. ('db4'/'sym7' is classically used for neural signal processing)
 DWT_LEVELS = 10; % Less than or equal to: wmaxlev(FRAME_LEN, DWT_WAVE)
 
-[n_samps, n_chans] = size(baseline_data);
+% --- Epsilon fallback: no baseline data available ---
+if isempty(baseline_data)
+    if nargin < 2
+        error('compute_dwt_thresholds: n_chans_override is required for empty baseline_data')
+    end
+    dwt_thresh_all = eps('double') * ones(n_chans_override, DWT_LEVELS);
+    return
+end
+
+
+[~, n_chans] = size(baseline_data);
 dwt_thresh_all = zeros(n_chans, DWT_LEVELS);
+
 for chan = 1:n_chans
-    [dwt_coeffs, dwt_delims] = wavedec(baseline_data(:,chan), DWT_LEVELS, DWT_WAVE);
+    [dwt_coeffs, dwt_delims] = wavedec(double(baseline_data(:,chan)), DWT_LEVELS, DWT_WAVE);
     dwt_thresh_chan = zeros(1, DWT_LEVELS);
     
     for level = 1:DWT_LEVELS
         det_coefs = detcoef(dwt_coeffs, dwt_delims, level);
         sigma_j = median(abs(det_coefs))/0.6745; % Noise intensity for each level
-        disp(sigma_j)
         N_j = length(det_coefs);
-        base_thresh = sigma_j*sqrt(log(N_j)); % Universal thresh defined in Donoho et al. 1994
+        base_thresh = sigma_j*sqrt(2*log(N_j)); % Universal thresh defined in Donoho et al. 1994
         % Han et al. Threshold (DWT version?)
         switch level
             case 1
@@ -25,7 +37,7 @@ for chan = 1:n_chans
                 dwt_thresh_chan(level) = base_thresh / log(level+1);
         end
     end
-    dwt_thresh_all(chan,:) = dwt_thresh_chan';
+    dwt_thresh_all(chan,:) = dwt_thresh_chan;
 end
 end
 

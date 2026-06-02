@@ -13,7 +13,7 @@ rule preprocess_session:
     threads: 1
     resources:
         mem_mb=4000,
-        time="01:00:00",
+        runtime=15, # minutes
         slurm_account="george",
         slurm_partition="kingspeak"
     shell:

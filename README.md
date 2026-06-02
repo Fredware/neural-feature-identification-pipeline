@@ -59,3 +59,62 @@ Data analysis pipeline for identifying features from USEA neural signals that yi
 
 --------
 
+## Snakemake Pipeline Execution Commands
+
+Dry run:
+```bash
+snakemake -np
+```
+Test Run (File subset for quick validation):
+```{bash}
+snakemake --profile workflow/profiles/slurm --config manifest_path="reports/manifest_test.tsv
+```
+Full Run:
+```{bash}
+snakemake --profile workflow/profiles/slurm
+```
+Re-Run incomplete jobs:
+```{bash}
+snakemake --profile workflow/profiles/slurm --rerun-incomplete
+```
+Selective run
+```{bash}
+snakemake --until <rule_name>
+```
+Ignore errors and keep running other independent files. Also trigger based on timestamps, not code changes.
+```{bash}
+snakemake --profile workflow/profiles/slurm/ --config manifest_path="reports/manifest_test_run_n15.tsv" --rerun-triggers mtime --keep-going --latency-wait 30 -np
+```
+
+## SLURM Helpful Commands
+Check SLURM job submissions
+```{bash}
+squeue -u <uNID>
+```
+
+Check when they are scheduled to start:
+```{bash}
+squeue --start -u <uNID>
+```
+
+Check time left in interactive session
+```{bash}
+squeue -h -j $SLURM_JOB_ID -O TimeLeft
+```
+
+## Checking logs
+```{bash}
+sacct -j 23586518 --format=JobID,State,Elapsed,MaxRSS,ExitCode
+```
+
+```{bash}
+tail -75 reports/logs/preprocess_session/152.log
+tail -75 reports/logs/extract_features/77_NFR.log
+```
+
+# Checking storage quotas
+```{bash}
+mychpc storage
+ncdu
+```
+

@@ -14,23 +14,51 @@ MANIFEST_PATH = config.get("manifest_path", "reports/manifest.tsv")
 manifest = pd.read_csv(MANIFEST_PATH, sep="\t").set_index("job_id", drop=False)
 JOB_IDS = manifest["job_id"].to_list()
 FEATURE_SETS = config["analysis"]["feature_sets"]
+DOF_CONFIGS = config.get("dof_configs", {})
+# Generate DOF configurations
+def get_valid_combinations():
+    """
+    Return list of (job_id, feature_set, dof_config) tuples where the session's category supports the DOF config.
+    """
+    combos = []
+    if "category" not in manifest.columns or not DOF_CONFIGS:
+        # Fall back to all jobs x all feature sets x all DOF configs
+        for dof_name in DOF_CONFIGS:
+            for job_id in JOB_IDS:
+                for fs in FEATURE_SETS:
+                    combos.append((job_id, fs, dof_name))
+        return combos
+
+    for dof_name, dof_info, in DOF_CONFIGS.items():
+        valid_cats = dof_info["valid_categories"]
+        valid_jobs = manifest[manifest["category"].isin(valid_cats)]["job_id"].to_list()
+        for job_id in valid_jobs:
+            for fs in FEATURE_SETS:
+                combos.append((job_id, fs, dof_name))
+    return combos
+VALID_COMBOS = get_valid_combinations()
 
 # --- 3. Target Rule (all) ---
 # Defines output files we want the pipeline to generate
 rule all:
     input:
+        # Up to feature extraction: all jobs x feature sets (i.e., DOF config-agnostic)
         # expand creates list of targets by generating all possible combinations of job_ids and feature_sets.
         expand(
             f"{SCRATCH_ROOT}/{{job_id}}/features/{{feature_set}}.h5",
             job_id = JOB_IDS,
             feature_set = FEATURE_SETS
-        )
+        ),
+        # Downstream: Only valid job x feature set x dof_config combos
+        [f"{SCRATCH_ROOT}/{job_id}/{dof}/decode/{fs}_metrics.json" for job_id, fs, dof in VALID_COMBOS],
 
 # --- 4. Include Modular Rule Files ---
 include: "rules/common.smk"
 include: "rules/preprocess_session.smk"
 include: "rules/extract_features.smk"
+include: "rules/select_features.smk"
+include: "rules/decode_features.smk"
 # TODO: Future rules for next stages
 # include: "rules/evaluate_features.smk"
-# include: "rules/evaluate_decoder.smk"
 # include: "rules/run_stats.smk"
+

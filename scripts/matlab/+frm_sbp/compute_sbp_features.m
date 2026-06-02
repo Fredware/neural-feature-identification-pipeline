@@ -228,9 +228,9 @@ end
 function filtered_data = apply_bandpass_filter(input_data)
 FS = 30e3;
 [filter_b, filter_a] = butter(1, [300 1000]/(FS/2), "bandpass"); % NOTE: The order of the filter is 2n
-filtered_data = input_data;
+filtered_data = zeros(size(input_data));
 for channel_idx = 1:size(input_data, 2)
-    filtered_data(:, channel_idx) = project_utils.FiltFiltM(filter_b, filter_a, ...
+    filtered_data(:, channel_idx) = filter(filter_b, filter_a, ...
         input_data(:, channel_idx));
 end
 end

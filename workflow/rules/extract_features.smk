@@ -14,22 +14,23 @@ rule extract_features:
     params:
         job_info=lambda wildcards: manifest.loc[int(wildcards.job_id)],
         data_root=DATA_ROOT
-    threads: 8
+    threads: 4
     resources:
-      mem_mb=120000,
+      mem_mb=96000,
       time="02:00:00",
-      slurm_account="george",
-      slurm_partition="kingspeak"
+      slurm_account="owner-guest",
+      slurm_partition="kingspeak-guest",
+      slurm_extra="'--qos=kingspeak-guest'"
     shell:
         r"""
         mkdir -p $(dirname {output.h5})
         mkdir -p $(dirname {log})
-
+        
         module load matlab/R2024b
         matlab -nodisplay -r " \
             addpath('scripts/matlab'); \
-            addpath('scripts/matlab/+project_utils'); \
             rehash toolboxcache; \
             extract_features( 'data_root', \"{DATA_ROOT}\", 'session_dir', \"{params.job_info.session_dir}\", 'full_stream_filename', \"{params.job_info.full_stream_filename}\",  'baseline_filename', \"{params.job_info.baseline_filename}\", 'kinematics_filepath', \"{input.kinematics}\", 'events_filepath', \"{input.events}\", 'feature_set_id', \"{wildcards.feature_set}\", 'output_filepath', \"{output.h5}\", 'config_filepath', \"{input.config_json}\"); exit; \
         " > {log} 2>&1
         """
+

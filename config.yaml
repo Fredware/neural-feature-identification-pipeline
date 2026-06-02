@@ -40,7 +40,8 @@ analysis:
     # Proportion of data to use for training (e.g., 0.7 = 70% train, 30% test)
     train_ratio: 0.7
     split_type: "train_first"
-    include_combined: False
+    include_combined: false
+    include_rest: true
 
 # --------------------------------------------------------------------------
 # 3. NEURAL DECODING PARAMETERS
@@ -48,7 +49,9 @@ analysis:
 algorithms:
   # Select the decoding algorithm to use for this analysis run.
   # Future work: mkf_3rd_order, rnn
-  decoder: "mkf_1st_order"
+  decoder: 
+    type: "mkf_1st_order"
+    burn_in_samples: 15
 
   # Parameters for the feature selection algorithm
   feature_selection:
@@ -57,6 +60,7 @@ algorithms:
 
     # The minimum correlation threshold between a feature and the kinematics to be considered in the feature selection process.
     min_correlation: 0.30
+    max_lag_samples: 12
 
 # --------------------------------------------------------------------------
 # 4. FEATURE EXTRACTION PARAMETERS
@@ -96,9 +100,24 @@ feature_extraction_params:
     window_length_sec: 0.300
 
 # --------------------------------------------------------------------------
+# 4. DOF CONFIG INFO
+# --------------------------------------------------------------------------
+dof_configs:
+  3DOF:
+    kinematic_indices: [1, 10, 12]
+    valid_categories: ["3DOF-ETDRF", "6DOF-DEKA", "8DOF-TASKA"]
+  6DOF:
+    kinematic_indices: [1, 2, 3, 6, 10, 12]
+    valid_categories: ["6DOF-DEKA", "8DOF-TASKA"]
+  8DOF:
+    kinematic_indices: [1, 2, 3, 4, 5, 6, 10, 12]
+    valid_categories: ["8DOF-TASKA"]
+
+# --------------------------------------------------------------------------
 # 4. ALTAIR VISUALIZATION PARAMETERS
 # --------------------------------------------------------------------------
 vis:
   num_of_x_points: 660
   kinematics_offset: 1.75
   dwt_subsample_count: 192
+
