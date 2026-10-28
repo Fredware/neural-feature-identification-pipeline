@@ -100,6 +100,8 @@ switch(args.feature_set_id)
             feature_params.sbp ...
             );
         frame_computation_times = frame_computation_times';
+    case "SBP-CAR"
+    case "STFT"
     case "DWT-DB1"
     case "DWT-DB4"
         dwt_thresh = frm_wavedec.compute_dwt_thresholds(ns5_data_baseline_scaled, [], 'db4');

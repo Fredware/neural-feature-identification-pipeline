@@ -118,3 +118,21 @@ mychpc storage
 ncdu
 ```
 
+# Plotting metrics
+```{bash}
+python scripts/python/aggregate_decoder_metrics.py --scratch-root /scratch/general/vast/u1424875/neural-feature-identification-pipeline --manifest reports/categorized_manifest_test_run_n15.tsv --participant-info reports/participant_info.yaml --output reports/aggregated_decoder_metrics_n15.csv 
+```
+
+```{bash}
+ python scripts/python/plot_decoder_dashboard.py --metrics reports/aggregated_decoder_metrics_n15.csv --metric rmse --filter intended --output reports/figures/dashboard_rmse_intended.html
+
+# Crosstalk view
+python scripts/python/plot_decoder_dashboard.py \
+    --metrics reports/aggregate_metrics.csv \
+    --metric rmse --filter unintended \
+    --output reports/figures/dashboard_crosstalk.html
+```
+
+```{bash}
+python scripts/python/plot_kalman_predictions.py --scratch-root /scratch/general/vast/u1424875/neural-feature-identification-pipeline/ --job-id 76 --feature-set NFR --dof-config 3DOF --output reports/figures/kalman_predictions/76_NFR_3DOF.png
+```
