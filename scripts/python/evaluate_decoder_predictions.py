@@ -536,8 +536,8 @@ def main(argv: list[str] | None = None) -> None:
 
     # --- Compute sample period ---
     # Recall that Feedback Decode aims, but does not enforce a 33ms loop rate. It is 33 ms+/- jitter. The Ripple should have exaclty a 30kHz rate though
-    dt = np.float(np.median(np.diff(test_nip_time)))
-    dt_seconds = dt / np.float(30e3)
+    dt = float(np.median(np.diff(test_nip_time)))
+    dt_seconds = dt / float(30e3)
     logger.info("Sample period: %.4f s (%.1f Hz)", dt_seconds, 1.0 / dt_seconds)
 
     # --- Map trials to test array indices ---
