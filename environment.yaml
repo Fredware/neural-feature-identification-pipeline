@@ -13,3 +13,4 @@ dependencies:
 
   # Python package manager
   - uv
+  - gh
