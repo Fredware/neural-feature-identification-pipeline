@@ -11,8 +11,8 @@ Observation: z[t] = H @ x[t]   + v, v ~N(0, Q)
 Convention: axis 0 is always time. All public APIs follow (n_samples, n_dims)
 """
 
+from dataclasses import dataclass
 import logging
-from dataclasses import dataclass, field
 
 import numpy as np
 from numpy.typing import NDArray
@@ -79,7 +79,7 @@ class ModifiedKalmanFilter:
         self.thresholds = thresholds
         self.apply_latching = apply_latching
         self.latch_constant = latch_constant
-        self.store_diagnostics_ = store_diagnostics
+        self.store_diagnostics = store_diagnostics
         self.is_fitted_ = False
 
     def fit(self, X: NDArray, y: NDArray) -> "ModifiedKalmanFilter":
@@ -242,8 +242,8 @@ class ModifiedKalmanFilter:
         klim_lo = -1.0 / self.gains_[:, 1]
         klim_hi = 1.0 / self.gains_[:, 0]
 
-        if self.store_diagnostics_:
-            self.store_diagnostics_ = []
+        if self.store_diagnostics:
+            self.diagnostics_ = []
         
         x_hat_prev = np.zeros(self.n_dofs_) # for latching filter
 
@@ -284,8 +284,8 @@ class ModifiedKalmanFilter:
             x_hat_prev = predictions[t, :].copy()
 
             # --- Store diagnostics ---
-            if self.store_diagnostics_:
-                self.store_diagnostics_.append(KalmanFilterState(
+            if self.store_diagnostics:
+                self.diagnostics_.append(KalmanFilterState(
                     x_posterior=x_hat.copy(),
                     P_posterior=P.copy(),
                     K=K.copy(),
@@ -371,140 +371,4 @@ class ModifiedKalmanFilter:
         adaptive_gain = np.minimum(filter_constant * delta ** 2, 1.0)
         result = x_hat_prev + adaptive_gain * delta
         return np.clip(result, -1.0, 1.0)
-
-# --- Per trial evaluation metrics ---
-@dataclass
-class TrialMetrics:
-    """Metrics for a single trial"""
-    trial_index: int
-    n_samples: int
-    rmse_per_dof: dict[str, float]
-    correlation_per_dof: dict[str, float]
-    rmse_mean: float
-    correlation_mean: float
-
-def _compute_single_trial_metrics(
-    y_true: NDArray,
-    y_pred: NDArray,
-    dof_indices: list[int],
-) -> tuple[dict[str, float], dict[str, float]]:
-    """Compute RMSE and correlation for one trial segment.
-
-    Args:
-        y_true: True kinematics for this trial, shpae (n_trial_samples, n_dofs)
-        y_pred: Predicted kinematics for this trial, shape (n_trial_samples, n_dofs)
-        dof_indices: 1-based DOF indices for labeling
-
-    Returns:
-        Tuple of (rmse_per_dof, corr_per_dof) dicts
-    """
-    rmse = {}
-    corr = {}
-    std_thresh = np.sqrt(_EPS)
-
-    for i, dof_idx in enumerate(dof_indices):
-        residuals = y_true[:, i] - y_pred[:, i]
-        rmse[str(dof_idx)] = float(np.sqrt(np.mean(residuals**2)))
-
-        if np.std(y_true[:, i]) < std_thresh or np.std(y_pred[:, i]) < std_thresh:
-            corr[str(dof_idx)] = 0.0
-        else:
-            r = float(np.corrcoef(y_true[:, i], y_pred[:, i])[0, 1])
-            corr[str(dof_idx)] = r if np.isfinite(r) else 0.0
-    return rmse, corr
-
-def compute_decode_metrics(
-    y_true: NDArray,
-    y_pred: NDArray,
-    dof_indices: list[int],
-    trial_boundaries: list[tuple[int, int]],
-    burn_in: int =15, 
-) ->  dict:
-    """Compute per-trial, per-DOF RMSE and Pearson correlation
-
-    Metrics are computed independently within each trial, then aggregated.
-    The burn-in is applied only to the first trial (the filter needs the initial
-    samples for state convergence but subsequent trials benefit from the converged state)
-
-    Args:
-        y_true: True kinematics, shape (n_samples, n_dofs)
-        y_pred: Predicted kinematics, shape (n_samples, n_dofs)
-        dof_indices: 1-based DOF indices for labeling results
-        trial_boundaries: List of (start_idx, end_idx) tuples defining each trial's
-            sample range within the test data. Indices are 0-based and end-exclusive
-        burn_in: Number of leading samples to exclude from the first trial.
-    
-    Returns:
-        Dict with per-trial metrics, per-DOF aggregates, and summary
-    """
-    trial_metrics: list[dict] = []
-    std_thresh = np.sqrt(_EPS)
-
-    for t_idx, (t_start, t_end) in enumerate(trial_boundaries):
-        # Apply burn-in only to the first trial
-        if t_idx == 0:
-            t_start = min(t_start + burn_in, t_end)
-        
-        if t_start >= t_end:
-            logger.warning(
-                "Trial %d has no samples after burn-in (start=%d, end=%d). Skipping",
-                t_idx, t_start, t_end,
-            )
-            continue
-
-        trial_true = y_true[t_start:t_end, :]
-        trial_pred = y_pred[t_start:t_end, :]
-
-        rmse, corr = _compute_single_trial_metrics(
-            trial_true, trial_pred, dof_indices
-        )
-
-        trial_metrics.append({
-            "trial_index": t_idx,
-            "n_samples": t_end - t_start,
-            "rmse_per_dof": rmse,
-            "correlation_per_dof": corr,
-            "rmse_mean": float(np.mean(list(rmse.values()))),
-            "correlation_mean": float(np.mean(list(corr.values()))),
-        })
-    
-    # Aggregate across trials
-    aggregate_rmse_per_dof = {}
-    aggregate_corr_per_dof = {}
-
-    for dof_str in [str(d) for d in dof_indices]:
-        dof_rmses = [t["rmse_per_dof"][dof_str] for t in trial_metrics]
-        dof_corrs = [t["correlation_per_dof"][dof_str] for t in trial_metrics]
-
-        aggregate_rmse_per_dof[dof_str] = {
-            "mean": float(np.mean(dof_rmses)),
-            "std": float(np.std(dof_rmses)),
-            "min": float(np.min(dof_rmses)),
-            "max": float(np.max(dof_rmses)),
-            "values": dof_rmses
-        }
-        aggregate_corr_per_dof[dof_str] = {
-            "mean": float(np.mean(dof_corrs)),
-            "std": float(np.std(dof_corrs)),
-            "min": float(np.min(dof_corrs)),
-            "max": float(np.max(dof_corrs)),
-            "values": dof_corrs,
-        }
-    
-    all_trial_rmses = [t["rmse_mean"] for t in trial_metrics]
-    all_trial_corrs = [t["correlation_mean"] for t in trial_metrics]
-
-    return{
-        "per_trial": trial_metrics,
-        "aggregate_rmse_per_dof": aggregate_rmse_per_dof,
-        "aggregate_correlation_per_dof": aggregate_corr_per_dof,
-        "summary":{
-            "rmse_mean": float(np.mean(all_trial_rmses)),
-            "rmse_std": float(np.std(all_trial_rmses)),
-            "correlation_mean": float(np.mean(all_trial_corrs)),
-            "correlation_std": float(np.std(all_trial_corrs)),
-            "n_trials": len(trial_metrics),
-            "n_burn_in_excluded": burn_in,
-        },
-    }
 

@@ -27,3 +27,4 @@ rule preprocess_session:
             process_shared_data( 'data_root', \"{DATA_ROOT}\", 'session_dir', \"{params.job_info.session_dir}\", 'training_filename', \"{params.job_info.training_filename}\", 'events_filename', \"{params.job_info.events_filename}\", 'output_kinematics_filepath', \"{output.kinematics}\", 'output_events_filepath', \"{output.events}\"); exit; \
         " > {log} 2>&1
         """
+

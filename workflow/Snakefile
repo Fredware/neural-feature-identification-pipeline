@@ -29,7 +29,7 @@ def get_valid_combinations():
                     combos.append((job_id, fs, dof_name))
         return combos
 
-    for dof_name, dof_info, in DOF_CONFIGS.items():
+    for dof_name, dof_info in DOF_CONFIGS.items():
         valid_cats = dof_info["valid_categories"]
         valid_jobs = manifest[manifest["category"].isin(valid_cats)]["job_id"].to_list()
         for job_id in valid_jobs:
@@ -58,7 +58,7 @@ include: "rules/preprocess_session.smk"
 include: "rules/extract_features.smk"
 include: "rules/select_features.smk"
 include: "rules/decode_features.smk"
+include: "rules/evaluate_decoder_predictions.smk"
 # TODO: Future rules for next stages
-# include: "rules/evaluate_features.smk"
 # include: "rules/run_stats.smk"
 
