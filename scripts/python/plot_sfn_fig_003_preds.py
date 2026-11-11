@@ -86,6 +86,8 @@ def parse_args():
     ap.add_argument("--flip-display", type=int, nargs="*", default=[6],
                     help="DOFs drawn upside down; default 6 so Thumb Intrinsic flexion points up. "
                          "Pass the flag with no values to draw every DOF with its real sign.")
+    ap.add_argument("--no-lag-aware-trials", dest="lag_aware_trials", action="store_false",
+                    help="map trials with the unshifted test_nip_time (previous behaviour; creates slivers)")
     ap.add_argument("--min-coverage", type=float, default=0.5,
                     help="a trial is drawn only if at least this fraction of its samples are test samples")
     ap.add_argument("--title", default=None,
@@ -153,7 +155,11 @@ def session_title(root, results_csv):
     m = re.search(r"(\d+)$", root.name.rstrip("/"))
     if m is None or not results_csv.exists():
         return None
-    df = pd.read_csv(results_csv, usecols=["job_id", "participant_id", "days_since_implant"])
+    try:
+        df = pd.read_csv(results_csv, usecols=["job_id", "participant_id", "days_since_implant"])
+    except ValueError as e:
+        log.warning("title_lookup_failed", path=str(results_csv), error=str(e))
+        return None
     row = df[df["job_id"].astype(str) == m.group(1)].head(1)
     if row.empty:
         return None
@@ -199,8 +205,17 @@ def main():
             ks = [int(k) for k in f["kinematic_indices"][()]]
             p, y = f["predictions"][()], f["true_kinematics"][()]
             test_nip = f["test_nip_time"][()].ravel()
+            lag = int(f.attrs.get("alignment_lag", 0))
         show = a.dofs or ks
-        trials = test_trials(test_nip, all_nip, starts, stops, mm)
+        # decode_features rolls the kinematics by the lag (row r holds the kinematics at nip[r + lag])
+        # and shifts the events to match; test_nip_time is NOT shifted. Map each test row to the
+        # time of the kinematics it holds, so trial windows line up with true_kinematics as in the
+        # pipeline. Without this, a lag of L puts ~L test rows of each trial into the next window.
+        i = np.searchsorted(all_nip, test_nip)
+        if not np.array_equal(all_nip[np.clip(i, 0, len(all_nip) - 1)], test_nip):
+            log.warning("test_nip_not_in_kinematics_nip", feature=feat)
+        kin_time = all_nip[np.clip(i + lag, 0, len(all_nip) - 1)]
+        trials = test_trials(kin_time if a.lag_aware_trials else test_nip, all_nip, starts, stops, mm)
         slivers = [(t[1], len(t[0]), round(t[3], 2)) for t in trials if t[3] < a.min_coverage]
         if slivers:
             log.warning("sliver_trials", feature=feat, n=len(slivers), dof_ntest_coverage=slivers)
@@ -209,13 +224,15 @@ def main():
         kept = [t for t in trials if t[1] in show and t[3] >= a.min_coverage
                 and (a.all_directions or t[2] == flex[t[1]])]
         r_all, r_shown = trial_rmse(trials, p, y, ks, a.burn_in), trial_rmse(kept, p, y, ks, a.burn_in)
+        r_null = trial_rmse(kept, np.zeros_like(p), y, ks, a.burn_in)   # "no prediction" reference
         jpath = eval_dir / f"{a.config}_{feat}_metrics.json"
         pipe = {}
         if jpath.exists():
             per_dof = json.load(open(jpath)).get("aggregate_per_dof", {})
             pipe = {k: per_dof.get(str(k), {}).get("intended", {}).get("rmse_mean") for k in ks}
         for k in show:
-            log.info("rmse_per_dof", feature=feat, dof=k, shown_trials=round(r_shown.get(k, np.nan), 3),
+            log.info("rmse_per_dof", feature=feat, dof=k, lag=lag, shown_trials=round(r_shown.get(k, np.nan), 3),
+                     no_prediction=round(r_null.get(k, np.nan), 3),
                      all_trials_here=round(r_all.get(k, np.nan), 3),
                      all_trials_pipeline=None if pipe.get(k) is None else round(pipe[k], 3))
         log.info("trials", feature=feat, kept=len(kept), dropped=len(trials) - len(kept),
