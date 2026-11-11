@@ -169,11 +169,12 @@ def session_title(root, results_csv):
 
 
 def trial_rmse(trials, p, y, ks, burn_in):
-    """Mean over trials of per-trial RMSE of the moved DOF, per DOF; burn-in samples excluded."""
+    """Mean over trials of per-trial RMSE of the moved DOF, per DOF; burn-in samples excluded.
+    Trials with < 2 samples are skipped, as in evaluate_decoder_predictions.evaluate."""
     per = {}
     for pos, k, *_ in trials:
         pos = pos[pos >= burn_in]
-        if len(pos) == 0 or k not in ks:
+        if len(pos) < 2 or k not in ks:
             continue
         j = ks.index(k)
         per.setdefault(k, []).append(np.sqrt(np.mean((p[pos, j] - y[pos, j]) ** 2)))
