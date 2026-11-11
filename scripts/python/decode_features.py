@@ -3,6 +3,18 @@
 Pipeline rule: decode_features
 Inputs:  features HDF5, kinematics HDF5, events HDF5, selected channels JSON
 Outputs: predictions HDF5
+
+Centering (optional, --center):
+    none      features used as stored (original behaviour, default)
+    rest      subtract each feature's mean over TRAINING samples where the hand
+              is at rest (all kinematics exactly 0). Stand-in for a baseline
+              recording, computed from the same session.
+    baseline  subtract each feature's mean over a baseline recording, read from
+              --baseline-features (HDF5 with dataset 'baseline_features',
+              (n_features, n_samples) or (n_samples, n_features), or a vector of
+              per-feature means).
+    The same offset is subtracted from training and test features; test data is
+    never used to compute it. Feature selection is unchanged (selected.json).
 """
 
 import argparse
@@ -101,6 +113,61 @@ def resolve_feature_orientation(
     return features, n_trim
 
 
+def compute_feature_offset(
+    mode: str,
+    features: NDArray,
+    kinematics: NDArray,
+    train_mask: NDArray,
+    baseline_path: Path | None = None,
+    min_rest_samples: int = 30,
+) -> NDArray:
+    """Per-feature offset to subtract before decoding (zeros if mode == 'none').
+
+    Args:
+        mode: 'none', 'rest' or 'baseline'.
+        features: (n_samples, n_features) after orientation/trim.
+        kinematics: (n_samples, n_dofs) after alignment, ALL dofs.
+        train_mask: boolean mask of training samples.
+        baseline_path: HDF5 with 'baseline_features' (mode 'baseline').
+        min_rest_samples: minimum rest samples required for mode 'rest'.
+
+    Returns:
+        (n_features,) offset vector.
+    """
+    n_features = features.shape[1]
+    if mode == "none":
+        return np.zeros(n_features)
+
+    if mode == "rest":
+        rest = train_mask & np.all(kinematics == 0.0, axis=1)
+        n_rest = int(rest.sum())
+        if n_rest < min_rest_samples:
+            raise ValueError(f"Only {n_rest} rest samples in training data")
+        logger.info("Centering on %d training rest samples (of %d training samples)",
+                    n_rest, int(train_mask.sum()))
+        return features[rest, :].mean(axis=0)
+
+    if mode == "baseline":
+        if baseline_path is None:
+            raise ValueError("--center baseline requires --baseline-features")
+        with h5py.File(baseline_path, "r") as f:
+            b = f["baseline_features"][:]
+        if b.ndim == 1:
+            offset = b
+        elif b.shape[1] == n_features:
+            offset = b.mean(axis=0)
+        elif b.shape[0] == n_features:
+            offset = b.mean(axis=1)
+        else:
+            raise ValueError(f"baseline_features {b.shape} vs {n_features} features")
+        if offset.shape[0] != n_features:
+            raise ValueError(f"baseline offset {offset.shape} vs {n_features} features")
+        logger.info("Centering on baseline recording %s", baseline_path)
+        return offset
+
+    raise ValueError(f"Unknown centering mode: {mode}")
+
+
 # =============================================================================
 # --- Main Entry Point ---
 
@@ -116,7 +183,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--apply-gain-threshold", action="store_true", help="Apply MKF gain-threshold post-processing.") # if the user types --apply-latching, python sets this variable to True. If they leave it out, it defaults to False.
     parser.add_argument("--apply-latching", action="store_true", help="Apply latching (smoothing) filter.")
     parser.add_argument("--latch-constant", type=float, default=1.0, help="Latching filter constant.")
-    
+
+    parser.add_argument("--center", choices=["none", "rest", "baseline"], default="none",
+                        help="Subtract a per-feature offset before decoding (see module doc).")
+    parser.add_argument("--baseline-features", type=Path, default=None,
+                        help="HDF5 with 'baseline_features' (for --center baseline).")
+
     parser.add_argument("--output-predictions", type=Path, required=True)
     return parser.parse_args(argv)
 
@@ -156,6 +228,7 @@ def main(argv: list[str] | None = None) -> None:
             f.attrs["alignment_lag"] = alignment_lag
             f.attrs["null_result"] = True
             f.attrs["null_reason"] = "no_features_passed_preselection"
+            f.attrs["centering"] = args.center
         logger.info("Null metrics written to %s", args.output_predictions)
         return
 
@@ -183,6 +256,11 @@ def main(argv: list[str] | None = None) -> None:
         else:
             kinematics[:-alignment_lag, :] = 0.0
         logger.info("Applied alignment lag=%d to kinematics and events", alignment_lag)
+
+    # --- Optional centering (offset from training rest or baseline only) ---
+    offset = compute_feature_offset(args.center, features, kinematics, train_mask,
+                                    args.baseline_features)
+    features = features - offset[np.newaxis, :]
 
     # --- Subset to active DOFs and selected features ---
     active_kin = kinematics[:, [idx - 1 for idx in kinematic_indices]]
@@ -222,6 +300,7 @@ def main(argv: list[str] | None = None) -> None:
         f.create_dataset("test_nip_time", data=test_nip)
         f.attrs["alignment_lag"] = alignment_lag
         f.attrs["null_result"] = False
+        f.attrs["centering"] = args.center
     logger.info("Predictions written to %s", args.output_predictions)
 
 
